@@ -1,0 +1,90 @@
+name: chain
+
+on:
+  workflow_call:
+    inputs:
+      version: { type: string, required: true }
+      arch: { type: string, required: true }
+
+jobs:
+  stage-1:
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}", first: true }
+
+  stage-2:
+    needs: stage-1
+    if: needs.stage-1.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-3:
+    needs: stage-2
+    if: needs.stage-2.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-4:
+    needs: stage-3
+    if: needs.stage-3.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-5:
+    needs: stage-4
+    if: needs.stage-4.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-6:
+    needs: stage-5
+    if: needs.stage-5.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-7:
+    needs: stage-6
+    if: needs.stage-6.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-8:
+    needs: stage-7
+    if: needs.stage-7.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-9:
+    needs: stage-8
+    if: needs.stage-8.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-10:
+    needs: stage-9
+    if: needs.stage-9.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-11:
+    needs: stage-10
+    if: needs.stage-10.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }
+
+  stage-12:
+    needs: stage-11
+    if: needs.stage-11.outputs.done != 'true'
+    uses: ./.github/workflows/stage.yml
+    secrets: inherit
+    with: { version: "${{ inputs.version }}", arch: "${{ inputs.arch }}" }

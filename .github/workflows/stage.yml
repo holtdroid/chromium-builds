@@ -1,0 +1,133 @@
+name: stage
+
+on:
+  workflow_call:
+    inputs:
+      version: { type: string, required: true }
+      arch: { type: string, required: true }
+      first: { type: boolean, default: false }
+    outputs:
+      done:
+        value: ${{ jobs.build.outputs.done }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 358
+    permissions:
+      contents: write
+    outputs:
+      done: ${{ steps.existing.outputs.done || steps.build.outputs.done }}
+    env:
+      VERSION: ${{ inputs.version }}
+      ARCH: ${{ inputs.arch }}
+      ARTIFACT: out-${{ inputs.version }}-${{ inputs.arch }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SCCACHE_BUCKET: ${{ vars.SCCACHE_BUCKET }}
+      SCCACHE_REGION: ${{ vars.SCCACHE_REGION }}
+      SCCACHE_ENDPOINT: ${{ secrets.SCCACHE_ENDPOINT }}
+      SCCACHE_S3_KEY_PREFIX: ${{ inputs.arch }}
+      SCCACHE_S3_USE_SSL: "true"
+      SCCACHE_IDLE_TIMEOUT: "0"
+      AWS_ACCESS_KEY_ID: ${{ secrets.SCCACHE_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.SCCACHE_SECRET_KEY }}
+    steps:
+      - run: echo "STARTED=$(date +%s)" >>"$GITHUB_ENV"
+
+      - name: Skip if already released
+        id: existing
+        if: inputs.first
+        run: |
+          if gh release view "$VERSION" --json assets -q '.assets[].name' 2>/dev/null \
+            | grep -qx "webview-$VERSION-$ARCH.apk"; then
+            echo "done=true" >>"$GITHUB_OUTPUT"
+          fi
+
+      - uses: easimon/maximize-build-space@v10
+        if: steps.existing.outputs.done != 'true'
+        with:
+          root-reserve-mb: 6144
+          swap-size-mb: 8192
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+
+      - uses: actions/checkout@v7
+        if: steps.existing.outputs.done != 'true'
+        with:
+          path: recipe
+
+      - name: Set up sccache
+        if: steps.existing.outputs.done != 'true' && env.SCCACHE_ENDPOINT != '' && env.SCCACHE_BUCKET != ''
+        run: |
+          curl -fsSL https://github.com/mozilla/sccache/releases/download/v0.19.0/sccache-v0.19.0-x86_64-unknown-linux-musl.tar.gz \
+            | sudo tar -xz -C /usr/local/bin --strip-components=1 --wildcards '*/sccache'
+          sccache --start-server
+
+      - name: Fetch
+        if: steps.existing.outputs.done != 'true'
+        run: recipe/scripts/fetch.sh "$VERSION" && df -h .
+
+      - name: Restore build directory
+        if: steps.existing.outputs.done != 'true' && !inputs.first
+        uses: actions/download-artifact@v8
+        with:
+          name: ${{ env.ARTIFACT }}
+
+      - name: Unpack build directory
+        if: steps.existing.outputs.done != 'true' && !inputs.first
+        run: |
+          zstd -d --stdout out.tar.zst | tar -C chromium/src -xf -
+          rm out.tar.zst
+          df -h .
+
+      - name: Build
+        id: build
+        if: steps.existing.outputs.done != 'true'
+        run: |
+          recipe/scripts/touch-sources.sh
+          limit=$(( STARTED + 330 * 60 - 35 * 60 - $(date +%s) ))
+          echo "build time: $(( limit / 60 )) min"
+          set +e
+          recipe/scripts/build.sh "$ARCH" "$limit"
+          code=$?
+          set -e
+          df -h .
+          if (( code == 0 )); then
+            echo "done=true" >>"$GITHUB_OUTPUT"
+          elif (( code == 124 )); then
+            echo "done=false" >>"$GITHUB_OUTPUT"
+          else
+            exit "$code"
+          fi
+
+      - name: sccache stats
+        if: always() && env.SCCACHE_ENDPOINT != '' && env.SCCACHE_BUCKET != ''
+        run: sccache --show-stats || true
+
+      - name: Pack build directory
+        if: steps.build.outputs.done == 'false'
+        run: |
+          tar -C chromium/src -cf - "out/$ARCH" | zstd -T0 -3 -o out.tar.zst
+          ls -lh out.tar.zst
+
+      - name: Save build directory
+        if: steps.build.outputs.done == 'false'
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.ARTIFACT }}
+          path: out.tar.zst
+          compression-level: 0
+          retention-days: 2
+          overwrite: true
+
+      - name: Publish
+        if: steps.build.outputs.done == 'true'
+        run: |
+          recipe/scripts/package.sh "$VERSION" "$ARCH" dist
+          gh release create "$VERSION" --title "Chromium $VERSION" \
+            --notes-file <(recipe/scripts/notes.sh "$VERSION") || gh release view "$VERSION" >/dev/null
+          gh release upload "$VERSION" dist/*.apk --clobber

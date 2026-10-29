@@ -1,0 +1,49 @@
+name: build
+
+on:
+  workflow_dispatch:
+    inputs:
+      milestones:
+        description: 'Milestones or versions: "latest", "150", "130-156", "148,152", "156.0.8078.73"'
+        default: latest
+      arches:
+        description: Architectures
+        default: x86_64,arm64
+      parallel:
+        description: Builds at once
+        default: "8"
+  schedule:
+    - cron: "17 3 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-24.04
+    outputs:
+      builds: ${{ steps.resolve.outputs.builds }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: resolve
+        env:
+          MILESTONES: ${{ inputs.milestones || 'latest' }}
+          ARCHES: ${{ inputs.arches || 'x86_64,arm64' }}
+        run: |
+          builds=$(scripts/resolve.sh "$MILESTONES" "$ARCHES")
+          echo "$builds" | jq .
+          echo "builds=$builds" >>"$GITHUB_OUTPUT"
+
+  build:
+    needs: resolve
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.parallel || '8') }}
+      matrix:
+        include: ${{ fromJSON(needs.resolve.outputs.builds) }}
+    name: ${{ matrix.version }} ${{ matrix.arch }}
+    uses: ./.github/workflows/chain.yml
+    secrets: inherit
+    with:
+      version: ${{ matrix.version }}
+      arch: ${{ matrix.arch }}
