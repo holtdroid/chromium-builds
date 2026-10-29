@@ -14,7 +14,7 @@ if [[ ! -d depot_tools ]]; then
   git clone --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools.git
 fi
 export PATH="$root/depot_tools:$PATH" DEPOT_TOOLS_UPDATE=0
-depot_tools/ensure_bootstrap
+"$root/depot_tools/ensure_bootstrap"
 
 if [[ ! -d src/.git ]]; then
   git init -q src
