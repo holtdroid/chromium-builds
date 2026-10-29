@@ -38,8 +38,8 @@ gclient sync --nohooks --no-history --shallow -D --force --jobs 16 \
   --revision "src@$(git -C src rev-parse HEAD)"
 
 if [[ ${CI:-} == true ]]; then
-  ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts \
-    || ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts --unsupported
+  ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts --no-arm --no-nacl \
+    || ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts --no-arm --no-nacl --unsupported
 fi
 
 gclient runhooks
