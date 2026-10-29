@@ -1,4 +1,12 @@
-# chromium-builds
+<p align="center">
+  <a href="https://holtdroid.github.io/holtdroid/sources/chromium/"><img src="https://github.com/holtdroid/.github/raw/main/profile/assets/social-chromium-builds.png" alt="Chromium builds — Chromium and WebView for Android from release tags"></a>
+</p>
+
+<p align="center">
+  Part of <a href="https://github.com/holtdroid/holtdroid"><b>Holtdroid</b></a> ·
+  <a href="https://holtdroid.github.io/holtdroid/sources/chromium/">Documentation</a> ·
+  <a href="https://github.com/holtdroid">All repositories</a>
+</p>
 
 Chromium for Android, built from release tags with proprietary codecs, for
 x86_64 and arm64. Each [release](../../releases) is one Chromium version
