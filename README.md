@@ -8,6 +8,14 @@
   <a href="https://github.com/holtdroid">All repositories</a>
 </p>
 
+<p align="center">
+  <img src="https://github.com/holtdroid/.github/raw/main/profile/assets/ai-disclaimer.png" alt="Disclaimer: fully AI-generated. Not a single line of code was written or reviewed by a human. Use at your own risk.">
+</p>
+
+> [!CAUTION]
+> **Fully AI-generated.** Not a single line of this project was written or reviewed by a human: all of it was
+> written by Claude through Claude Code. It's a Pandora's box, so use it at your own risk.
+
 Chromium for Android, built from release tags with proprietary codecs, for
 x86_64 and arm64. Each [release](../../releases) is one Chromium version
 (the last Android Stable patch of its milestone) and holds:
