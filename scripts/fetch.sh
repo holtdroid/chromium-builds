@@ -44,4 +44,4 @@ if [[ ${CI:-} == true ]]; then
 fi
 
 gclient runhooks
-python3 src/build/linux/sysroot_scripts/install-sysroot.py --arch=amd64
+for a in amd64 i386; do python3 src/build/linux/sysroot_scripts/install-sysroot.py --arch=$a; done
