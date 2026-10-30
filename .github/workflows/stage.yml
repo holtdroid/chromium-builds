@@ -110,7 +110,7 @@ jobs:
       - name: Pack build directory
         if: steps.build.outputs.done == 'false'
         run: |
-          tar -C chromium/src -cf - "out/$ARCH" | zstd -T0 -3 -o out.tar.zst
+          tar --format=posix -C chromium/src -cf - "out/$ARCH" | zstd -T0 -3 -o out.tar.zst
           ls -lh out.tar.zst
 
       - name: Save build directory
