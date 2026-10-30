@@ -17,9 +17,13 @@ x86_64 and arm64. Each [release](../../releases) is one Chromium version
 | `chromium-<version>-<arch>.apk` | the browser, `org.chromium.chrome` |
 | `webview-<version>-<arch>.apk` | the WebView provider, `com.android.webview` |
 
+The first line of each release's notes is the date Google published that
+version to Android Stable, as `Released to Android Stable: <RFC 3339 UTC>`
+(taken from [Chromium Dash](https://chromiumdash.appspot.com/releases?platform=Android)).
+
 The builds are plain Chromium, without patches. The only changes from
 Chromium's defaults are in [`scripts/build.sh`](scripts/build.sh):
-a release build without symbols, 64-bit only, and `proprietary_codecs`
+a release build without symbols or Android lint, 64-bit only, and `proprietary_codecs`
 with `ffmpeg_branding = "Chrome"`, so MP4, H.264, AAC and HEVC play through
 the device's own decoders. Everything is signed with Chromium's public debug
 key.

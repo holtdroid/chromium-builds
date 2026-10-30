@@ -33,6 +33,7 @@ blink_symbol_level = 0
 v8_symbol_level = 0
 treat_warnings_as_errors = false
 use_remoteexec = false
+android_static_analysis = "off"
 skip_secondary_abi_for_cq = true
 proprietary_codecs = true
 ffmpeg_branding = "Chrome"
