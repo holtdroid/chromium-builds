@@ -32,7 +32,6 @@ solutions = [{
   "custom_vars": {"checkout_pgo_profiles": False},
 }]
 target_os = ["android"]
-target_os_only = True
 EOF
 
 gclient sync --nohooks --no-history --shallow -D --force --jobs 16 \
