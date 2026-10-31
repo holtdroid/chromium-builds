@@ -127,6 +127,8 @@ jobs:
         if: steps.build.outputs.done == 'true'
         run: |
           recipe/scripts/package.sh "$VERSION" "$ARCH" dist
-          gh release create "$VERSION" --title "Chromium $VERSION" \
+          gh release create "$VERSION" --title "Chromium $VERSION" --latest=false \
             --notes-file <(recipe/scripts/notes.sh "$VERSION") || gh release view "$VERSION" >/dev/null
           gh release upload "$VERSION" dist/*.apk --clobber
+          newest=$(gh release list --limit 1000 --json tagName -q '.[].tagName' | sort -V | tail -1)
+          gh release edit "$newest" --latest
