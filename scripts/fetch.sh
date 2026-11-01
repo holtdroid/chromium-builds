@@ -24,6 +24,9 @@ if [[ ! -d depot_tools ]]; then
   retry git clone --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools.git
 fi
 export PATH="$root/depot_tools:$PATH" DEPOT_TOOLS_UPDATE=0
+export GIT_CONFIG_COUNT=1 \
+  GIT_CONFIG_KEY_0=url.https://github.com/google/perfetto.git.insteadOf \
+  GIT_CONFIG_VALUE_0=https://chromium.googlesource.com/external/github.com/google/perfetto.git
 
 "$root/depot_tools/ensure_bootstrap"
 
