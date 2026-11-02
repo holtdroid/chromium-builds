@@ -46,22 +46,18 @@ index='{}'
 
 table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$tmp/planned.json" --slurpfile dash "$tmp/dash.json" '
   $planned[0] as $planned | $dash[0] as $dash |
-  def esc: tostring | gsub("-"; "--") | gsub("_"; "__") | gsub(" "; "%20");
-  def badge($label; $message; $color; $logo):
-    "https://img.shields.io/badge/\($label | esc)-\($message | esc)-\($color)?style=flat-square"
-    + (if $logo == "" then "" else "&logo=\($logo)&logoColor=white" end);
   def icon($v; $kind):
     ($icons[$v][$kind] // "") as $f
-    | if $f == "" then "" else "<img src=\"https://raw.githubusercontent.com/\($repo)/icons/\($f)\" width=\"28\" height=\"28\" alt=\"\($kind)\"> " end;
+    | if $f == "" then "" else "<img src=\"https://raw.githubusercontent.com/\($repo)/icons/\($f)\" width=\"32\" height=\"32\" alt=\"\($kind)\">" end;
   def mb: (. / 1048576 | round | tostring) + " MB";
   def state($version; $arch):
     [$planned[] | select(.version == $version and .arch == $arch) | .state]
     | if index("building") then "building" elif index("queued") then "queued" else "not built" end;
-  def download($assets; $kind; $version; $arch; $color; $logo):
+  def download($assets; $kind; $version; $arch):
     ($assets | map(select(.name == "\($kind)-\($version)-\($arch).apk")) | first) as $a
     | state($version; $arch) as $state
     | "https://raw.githubusercontent.com/\($repo)/icons/badges/\($kind)-\($arch)-\(if $a then $a.size | mb else $state end | ascii_downcase | gsub(" "; "-")).svg" as $svg
-    | if $a then "[![\($arch)](\($svg))](\($a.browser_download_url))" else "![\($arch)](\($svg))" end;
+    | "[![\($arch)](\($svg))](\(if $a then $a.browser_download_url else "https://github.com/\($repo)/actions/workflows/build.yml" end))";
 
   (map(.tag_name)) as $released
   | . + ([$planned[].version] | unique | map(select(. as $v | $released | index($v) | not))
@@ -71,23 +67,24 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$
 
   | sort_by(.tag_name | split(".") | map(tonumber)) | reverse
   | (map(select((.prerelease or .pending) | not) | .tag_name) | first) as $newest
-  | [ "| | Version | Released | Chromium | WebView |",
-      "| --- | --- | --- | --- | --- |" ]
+  | [ "| | Version | Released | | Chromium | | WebView |",
+      "| --- | --- | --- | :---: | --- | :---: | --- |" ]
     + map(
         .tag_name as $v
         | (.body // "" | capture("Released to Android (?<c>[A-Za-z]+): (?<d>[0-9-]{10})") // {c: "Stable", d: ""}) as $released
         | $released.d as $date
-        | (if $v == $newest then ["latest", "2ea44f"]
-           elif $released.c == "Stable" then ["stable", "4285F4"]
-           else [$released.c | ascii_downcase, "F9AB00"] end) as [$status, $color]
+        | (if $v == $newest then "latest" else $released.c | ascii_downcase end) as $status
         | ([.assets[].download_count] | add // 0) as $downloads
         | (if .pending then "**\($v)**<br><sub>\(if any($planned[]; .version == $v and .state == "building") then "building" else "queued" end)</sub>"
            else "[**\($v)**](https://github.com/\($repo)/releases/tag/\($v))<br><sub>\($downloads) downloads</sub>" end) as $title
-        | "| \(icon($v; "chromium"))\(icon($v; "webview"))<br>![M\($v | split(".")[0])](\(badge("M" + ($v | split(".")[0]); $status; $color; "googlechrome")))"
+        | ($v | split(".")[0]) as $m
+        | "| [![M\($m) \($status)](https://raw.githubusercontent.com/\($repo)/icons/badges/m-\($m)-\($status).svg)](\(if .pending then "https://github.com/\($repo)/actions/workflows/build.yml" else "https://github.com/\($repo)/releases/tag/\($v)" end))"
           + " | \($title)"
           + " | \(if $date == "" then "—" else $date | gsub("-"; "\u2011") end)"
-          + " | \(download(.assets; "chromium"; $v; "x86_64"; "1A73E8"; "chromium"))<br>\(download(.assets; "chromium"; $v; "arm64"; "1A73E8"; "chromium"))"
-          + " | \(download(.assets; "webview"; $v; "x86_64"; "3DDC84"; "android"))<br>\(download(.assets; "webview"; $v; "arm64"; "3DDC84"; "android")) |")
+          + " | \(icon($v; "chromium"))"
+          + " | \(download(.assets; "chromium"; $v; "x86_64"))<br>\(download(.assets; "chromium"; $v; "arm64"))"
+          + " | \(icon($v; "webview"))"
+          + " | \(download(.assets; "webview"; $v; "x86_64"))<br>\(download(.assets; "webview"; $v; "arm64")) |")
   | join("\n")' <<<"$releases")
 
 pending=$(jq --slurpfile planned "$tmp/planned.json" '(map(.tag_name)) as $released
@@ -110,10 +107,17 @@ SVG
 
 if [[ -n $icons ]]; then
   mkdir -p "$icons/badges"
-  grep -oE 'icons/badges/[a-z]+-(x86_64|arm64)-[a-z0-9-]+\.svg' <<<"$table" | sort -u | while read -r path; do
+  grep -oE 'icons/badges/[a-z]+-[a-z0-9_]+-[a-z0-9-]+\.svg' <<<"$table" | sort -u | while read -r path; do
     name=${path#icons/badges/}
     name=${name%.svg}
     kind=${name%%-*}
+    if [[ $kind == m ]]; then
+      milestone=${name#m-}
+      status=${milestone#*-}
+      case $status in latest) color=2EA44F ;; stable) color=4285F4 ;; *) color=F9AB00 ;; esac
+      badge_svg "M${milestone%%-*}" "$status" "$color" googlechrome >"$icons/badges/$name.svg"
+      continue
+    fi
     rest=${name#*-}
     arch=${rest%%-*}
     message=${rest#*-}
