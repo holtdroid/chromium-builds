@@ -18,7 +18,8 @@ for run in $(gh api "repos/$repo/actions/workflows/build.yml/runs?per_page=30" \
   jobs=$(gh api "repos/$repo/actions/runs/$run/jobs?per_page=100" --paginate | jq -s 'map(.jobs) | add')
   resolve=$(jq -r '.[] | select(.name == "resolve" and .conclusion == "success") | .id' <<<"$jobs")
   [[ -n $resolve ]] || continue
-  plan=$(gh api "repos/$repo/actions/jobs/$resolve/logs" | sed -E 's/^[0-9]{4}-[0-9-]+T[0-9:.]+Z //' \
+  plan=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-$(gh auth token)}" \
+    "https://api.github.com/repos/$repo/actions/jobs/$resolve/logs" | sed -E 's/^[0-9]{4}-[0-9-]+T[0-9:.]+Z //' \
     | awk '/^\[$/ { f = 1 } f { print } /^\]$/ { exit }')
   planned=$(jq -c --argjson plan "${plan:-[]}" --argjson jobs "$jobs" '. + [
     $plan[] | . as $b
