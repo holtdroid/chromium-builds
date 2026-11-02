@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 358
     permissions:
       contents: write
+      actions: write
     outputs:
       done: ${{ steps.existing.outputs.done || steps.build.outputs.done }}
     env:
@@ -132,3 +133,4 @@ jobs:
           gh release upload "$VERSION" dist/*.apk --clobber
           newest=$(gh release list --limit 1000 --json tagName -q '.[].tagName' | sort -V | tail -1)
           gh release edit "$newest" --latest
+          gh workflow run readme.yml || true

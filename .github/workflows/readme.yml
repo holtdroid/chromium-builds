@@ -1,0 +1,35 @@
+name: readme
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published, edited, deleted]
+  schedule:
+    - cron: "47 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: readme
+
+jobs:
+  readme:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+      - run: scripts/readme.sh
+      - name: Commit
+        run: |
+          git diff --quiet README.md && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -qm 'docs: update the release table' README.md
+          for _ in 1 2 3; do
+            git pull -q --rebase && git push -q && exit 0
+            sleep 10
+          done
+          exit 1
