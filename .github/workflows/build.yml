@@ -10,8 +10,8 @@ on:
         description: Architectures
         default: x86_64,arm64
       parallel:
-        description: Builds at once
-        default: "8"
+        description: Builds at once (the organisation shares about 20 runners, keep some free)
+        default: "4"
   schedule:
     - cron: "17 3 * * *"
 
@@ -42,7 +42,7 @@ jobs:
     needs: resolve
     strategy:
       fail-fast: false
-      max-parallel: ${{ fromJSON(inputs.parallel || '8') }}
+      max-parallel: ${{ fromJSON(inputs.parallel || '4') }}
       matrix:
         include: ${{ fromJSON(needs.resolve.outputs.builds) }}
     name: ${{ matrix.version }} ${{ matrix.arch }}
