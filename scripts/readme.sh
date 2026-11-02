@@ -12,30 +12,38 @@ repo=${GITHUB_REPOSITORY:-$(gh repo view --json nameWithOwner -q .nameWithOwner)
 
 releases=$(gh api "repos/$repo/releases?per_page=100" --paginate | jq -s 'add | map(select(.draft | not))')
 
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+
 planned='[]'
 for run in $(gh api "repos/$repo/actions/workflows/build.yml/runs?per_page=30" \
   --jq '.workflow_runs[] | select(.status != "completed") | .id'); do
-  jobs=$(gh api "repos/$repo/actions/runs/$run/jobs?per_page=100" --paginate | jq -s 'map(.jobs) | add')
+  gh api "repos/$repo/actions/runs/$run/jobs?per_page=100" --paginate \
+    | jq -s 'map(.jobs[] | {id, name, status, conclusion})' >"$tmp/jobs.json"
+  jobs=$(cat "$tmp/jobs.json")
   resolve=$(jq -r '.[] | select(.name == "resolve" and .conclusion == "success") | .id' <<<"$jobs")
   [[ -n $resolve ]] || continue
   plan=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-$(gh auth token)}" \
     "https://api.github.com/repos/$repo/actions/jobs/$resolve/logs" | sed -E 's/^[0-9]{4}-[0-9-]+T[0-9:.]+Z //' \
     | awk '!d && /^\[$/ { f = 1 } f { print } f && /^\]$/ { f = 0; d = 1 }')
-  planned=$(jq -c --argjson plan "${plan:-[]}" --argjson jobs "$jobs" '. + [
+  echo "${plan:-[]}" >"$tmp/plan.json"
+  planned=$(jq -c --slurpfile plan "$tmp/plan.json" --slurpfile jobs "$tmp/jobs.json" '$plan[0] as $plan | $jobs[0] as $jobs | . + [
     $plan[] | . as $b
     | [$jobs[] | select(.name | startswith("\($b.version) \($b.arch) / "))] as $own
     | if $own == [] then "queued" elif any($own[]; .status != "completed") then "building" else empty end
     | {version: $b.version, arch: $b.arch, state: .} ]' <<<"$planned")
 done
 
-dash=$(for channel in Beta Stable; do
+for channel in Beta Stable; do
   curl -fsS "https://chromiumdash.appspot.com/fetch_releases?channel=$channel&platform=Android&num=1000"
-done | jq -s 'add | map({key: .version, value: {channel, time}}) | from_entries')
+done | jq -s 'add | map({key: .version, value: {channel, time}}) | from_entries' >"$tmp/dash.json"
+echo "$planned" >"$tmp/planned.json"
 
 index='{}'
 [[ -n $icons && -f $icons/index.json ]] && index=$(cat "$icons/index.json")
 
-table=$(jq -r --arg repo "$repo" --argjson icons "$index" --argjson planned "$planned" --argjson dash "$dash" '
+table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$tmp/planned.json" --slurpfile dash "$tmp/dash.json" '
+  $planned[0] as $planned | $dash[0] as $dash |
   def esc: tostring | gsub("-"; "--") | gsub("_"; "__") | gsub(" "; "%20");
   def badge($label; $message; $color; $logo):
     "https://img.shields.io/badge/\($label | esc)-\($message | esc)-\($color)?style=flat-square"
