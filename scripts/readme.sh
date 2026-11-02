@@ -50,7 +50,7 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$
     + (if $logo == "" then "" else "&logo=\($logo)&logoColor=white" end);
   def icon($v; $kind):
     ($icons[$v][$kind] // "") as $f
-    | if $f == "" then "" else "<img src=\"https://raw.githubusercontent.com/\($repo)/icons/\($f)\" width=\"20\" height=\"20\" alt=\"\($kind)\"> " end;
+    | if $f == "" then "" else "<img src=\"https://raw.githubusercontent.com/\($repo)/icons/\($f)\" width=\"28\" height=\"28\" alt=\"\($kind)\"> " end;
   def mb: (. / 1048576 | round | tostring) + " MB";
   def state($version; $arch):
     [$planned[] | select(.version == $version and .arch == $arch) | .state]
@@ -81,11 +81,11 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$
         | ([.assets[].download_count] | add // 0) as $downloads
         | (if .pending then "**\($v)**<br><sub>\(if any($planned[]; .version == $v and .state == "building") then "building" else "queued" end)</sub>"
            else "[**\($v)**](https://github.com/\($repo)/releases/tag/\($v))<br><sub>\($downloads) downloads</sub>" end) as $title
-        | "| ![M\($v | split(".")[0])](\(badge("M" + ($v | split(".")[0]); $status; $color; "googlechrome")))"
+        | "| \(icon($v; "chromium"))\(icon($v; "webview"))<br>![M\($v | split(".")[0])](\(badge("M" + ($v | split(".")[0]); $status; $color; "googlechrome")))"
           + " | \($title)"
-          + " | \(if $date == "" then "—" else $date end)"
-          + " | \(icon($v; "chromium"))\(download(.assets; "chromium"; $v; "x86_64"; "1A73E8"; "chromium")) \(download(.assets; "chromium"; $v; "arm64"; "1A73E8"; "chromium"))"
-          + " | \(icon($v; "webview"))\(download(.assets; "webview"; $v; "x86_64"; "3DDC84"; "android")) \(download(.assets; "webview"; $v; "arm64"; "3DDC84"; "android")) |")
+          + " | \(if $date == "" then "—" else $date | gsub("-"; "\u2011") end)"
+          + " | \(download(.assets; "chromium"; $v; "x86_64"; "1A73E8"; "chromium"))<br>\(download(.assets; "chromium"; $v; "arm64"; "1A73E8"; "chromium"))"
+          + " | \(download(.assets; "webview"; $v; "x86_64"; "3DDC84"; "android"))<br>\(download(.assets; "webview"; $v; "arm64"; "3DDC84"; "android")) |")
   | join("\n")' <<<"$releases")
 
 pending=$(jq --slurpfile planned "$tmp/planned.json" '(map(.tag_name)) as $released
