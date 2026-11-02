@@ -88,11 +88,13 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$
           + " | \(icon($v; "webview"))\(download(.assets; "webview"; $v; "x86_64"; "3DDC84"; "android")) \(download(.assets; "webview"; $v; "arm64"; "3DDC84"; "android")) |")
   | join("\n")' <<<"$releases")
 
-pending=$(jq --argjson released "$releases" '[.[].version] | unique | map(select(. as $v | $released | map(.tag_name) | index($v) | not)) | length' <<<"$planned")
+pending=$(jq --slurpfile planned "$tmp/planned.json" '(map(.tag_name)) as $released
+  | [$planned[0][].version] | unique | map(select(. as $v | $released | index($v) | not)) | length' <<<"$releases")
 summary="$(jq length <<<"$releases") versions published, $pending more queued or building, newest first. x86_64 is for emulators and redroid, arm64 for phones."
 
-TABLE=$table SUMMARY=$summary awk '
-  /<!-- releases:start -->/ { print; print ""; print ENVIRON["SUMMARY"]; print ""; print ENVIRON["TABLE"]; print ""; skip = 1; next }
+printf '%s\n\n%s\n' "$summary" "$table" >"$tmp/table.md"
+TABLE=$tmp/table.md awk '
+  /<!-- releases:start -->/ { print; print ""; while ((getline line <ENVIRON["TABLE"]) > 0) print line; print ""; skip = 1; next }
   /<!-- releases:end -->/ { skip = 0 }
   !skip' "$readme" >"$readme.tmp"
 mv "$readme.tmp" "$readme"
