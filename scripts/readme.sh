@@ -3,10 +3,12 @@
 # Rewrites the release table between the releases markers of the README from
 # the repository's GitHub releases, with the icons from icons.sh, served from
 # the icons branch, and the builds that running build workflows have queued or
-# are building. Needs gh, jq and curl.
+# are building. The download badges are fixed-width SVGs written to
+# <icons dir>/badges and served from the icons branch too. Needs gh, jq and curl.
 set -euo pipefail
 
 readme=${1:-README.md}
+here=$(cd "$(dirname "$0")" && pwd)
 icons=${2:-}
 repo=${GITHUB_REPOSITORY:-$(gh repo view --json nameWithOwner -q .nameWithOwner)}
 
@@ -58,8 +60,8 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$
   def download($assets; $kind; $version; $arch; $color; $logo):
     ($assets | map(select(.name == "\($kind)-\($version)-\($arch).apk")) | first) as $a
     | state($version; $arch) as $state
-    | if $a then "[![\($arch)](\(badge($arch; $a.size | mb; $color; $logo)))](\($a.browser_download_url))"
-      else "![\($arch)](\(badge($arch; $state; if $state == "building" then "dfb317" else "lightgrey" end; "")))" end;
+    | "https://raw.githubusercontent.com/\($repo)/icons/badges/\($kind)-\($arch)-\(if $a then $a.size | mb else $state end | ascii_downcase | gsub(" "; "-")).svg" as $svg
+    | if $a then "[![\($arch)](\($svg))](\($a.browser_download_url))" else "![\($arch)](\($svg))" end;
 
   (map(.tag_name)) as $released
   | . + ([$planned[].version] | unique | map(select(. as $v | $released | index($v) | not))
@@ -91,6 +93,39 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$
 pending=$(jq --slurpfile planned "$tmp/planned.json" '(map(.tag_name)) as $released
   | [$planned[0][].version] | unique | map(select(. as $v | $released | index($v) | not)) | length' <<<"$releases")
 summary="$(jq length <<<"$releases") versions published, $pending more queued or building, newest first. x86_64 is for emulators and redroid, arm64 for phones."
+
+badge_svg() {
+  local label=$1 message=$2 color=$3 logo
+  logo=$(sed -nE 's/.* d="([^"]+)".*/\1/p' "$here/logos/$4.svg")
+  cat <<SVG
+<svg xmlns="http://www.w3.org/2000/svg" width="136" height="20" role="img" aria-label="$label: $message">
+<rect width="66" height="20" fill="#555"/><rect x="66" width="70" height="20" fill="#$color"/>
+<svg x="5" y="3" width="14" height="14" viewBox="0 0 24 24"><path fill="#fff" d="$logo"/></svg>
+<g fill="#fff" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">
+<text x="43" y="14">$label</text><text x="101" y="14">$message</text>
+</g>
+</svg>
+SVG
+}
+
+if [[ -n $icons ]]; then
+  mkdir -p "$icons/badges"
+  grep -oE 'icons/badges/[a-z]+-(x86_64|arm64)-[a-z0-9-]+\.svg' <<<"$table" | sort -u | while read -r path; do
+    name=${path#icons/badges/}
+    name=${name%.svg}
+    kind=${name%%-*}
+    rest=${name#*-}
+    arch=${rest%%-*}
+    message=${rest#*-}
+    case $kind in chromium) color=1A73E8 logo=googlechrome ;; *) color=3DDC84 logo=android ;; esac
+    case $message in
+      *-mb) message="${message%-mb} MB" ;;
+      building) color=DFB317 ;;
+      *) message=${message//-/ } color=9F9F9F ;;
+    esac
+    badge_svg "$arch" "$message" "$color" "$logo" >"$icons/badges/$name.svg"
+  done
+fi
 
 printf '%s\n\n%s\n' "$summary" "$table" >"$tmp/table.md"
 TABLE=$tmp/table.md awk '

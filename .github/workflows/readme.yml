@@ -34,12 +34,17 @@ jobs:
             git worktree add -q --orphan -b icons icons
           fi
           scripts/icons.sh icons
-          cd icons
+      - run: |
+          rm -rf icons/badges
+          scripts/readme.sh README.md icons
+      - name: Publish icons and badges
+        working-directory: icons
+        run: |
+          [[ -e .git ]] || exit 0
           git add -A
           git diff --cached --quiet && exit 0
           git commit -qm 'icons: update'
           git push -q origin HEAD:refs/heads/icons
-      - run: scripts/readme.sh README.md icons
       - name: Commit
         run: |
           git diff --quiet README.md && exit 0
