@@ -54,7 +54,10 @@ retry gclient sync --nohooks --no-history --shallow -D --force --jobs 16 \
 if [[ ${CI:-} == true ]]; then
   ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts \
     || ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts --unsupported \
-    || echo "::warning::install-build-deps.sh of $version failed on this Ubuntu, building with the runner's packages"
+    || {
+      echo "::warning::install-build-deps.sh of $version failed on this Ubuntu, installing the tools Android builds need"
+      sudo apt-get install -y -qq gperf bison flex patch perl zip unzip xz-utils lsb-release
+    }
 fi
 
 retry gclient runhooks
