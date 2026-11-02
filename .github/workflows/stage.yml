@@ -128,9 +128,12 @@ jobs:
         if: steps.build.outputs.done == 'true'
         run: |
           recipe/scripts/package.sh "$VERSION" "$ARCH" dist
-          gh release create "$VERSION" --title "Chromium $VERSION" --latest=false \
-            --notes-file <(recipe/scripts/notes.sh "$VERSION") || gh release view "$VERSION" >/dev/null
+          recipe/scripts/notes.sh "$VERSION" >notes.md
+          pre=()
+          head -1 notes.md | grep -q 'Android Stable' || pre=(--prerelease)
+          gh release create "$VERSION" --title "Chromium $VERSION" --latest=false "${pre[@]}" \
+            --notes-file notes.md || gh release view "$VERSION" >/dev/null
           gh release upload "$VERSION" dist/*.apk --clobber
-          newest=$(gh release list --limit 1000 --json tagName -q '.[].tagName' | sort -V | tail -1)
+          newest=$(gh release list --limit 1000 --exclude-pre-releases --json tagName -q '.[].tagName' | sort -V | tail -1)
           gh release edit "$newest" --latest
           gh workflow run readme.yml || true

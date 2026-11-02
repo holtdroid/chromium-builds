@@ -29,15 +29,18 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" '
       else "![\($arch)](\(badge($arch; "building"; "lightgrey"; "")))" end;
 
   sort_by(.tag_name | split(".") | map(tonumber)) | reverse
-  | (map(.tag_name) | first) as $newest
-  | [ "| | Version | Android Stable | Chromium | WebView |",
+  | (map(select(.prerelease | not) | .tag_name) | first) as $newest
+  | [ "| | Version | Released | Chromium | WebView |",
       "| --- | --- | --- | --- | --- |" ]
     + map(
         .tag_name as $v
-        | (.body // "" | capture("Released to Android Stable: (?<d>[0-9-]{10})").d // "") as $date
+        | (.body // "" | capture("Released to Android (?<c>[A-Za-z]+): (?<d>[0-9-]{10})") // {c: "Stable", d: ""}) as $released
+        | $released.d as $date
+        | (if $v == $newest then ["latest", "2ea44f"]
+           elif $released.c == "Stable" then ["stable", "4285F4"]
+           else [$released.c | ascii_downcase, "F9AB00"] end) as [$status, $color]
         | ([.assets[].download_count] | add // 0) as $downloads
-        | "| ![M\($v | split(".")[0])](\(badge("M" + ($v | split(".")[0]); if $v == $newest then "latest" else "stable" end;
-                                            if $v == $newest then "2ea44f" else "4285F4" end; "googlechrome")))"
+        | "| ![M\($v | split(".")[0])](\(badge("M" + ($v | split(".")[0]); $status; $color; "googlechrome")))"
           + " | [**\($v)**](https://github.com/\($repo)/releases/tag/\($v))"
           + "<br><sub>\($downloads) downloads</sub>"
           + " | \(if $date == "" then "—" else $date end)"

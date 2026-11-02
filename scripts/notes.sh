@@ -3,11 +3,14 @@
 set -euo pipefail
 
 version=${1:?version}
-released=$(curl -fsS 'https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Android&num=1000' \
-  | jq -r --arg v "$version" 'map(select(.version == $v)) | .[0].time // empty | ./1000 | todate')
+release=$(for channel in Stable Beta; do
+  curl -fsS "https://chromiumdash.appspot.com/fetch_releases?channel=$channel&platform=Android&num=1000"
+done | jq -s --arg v "$version" 'add | map(select(.version == $v)) | sort_by(.channel != "Stable") | .[0] // {}')
+channel=$(jq -r '.channel // "Stable"' <<<"$release")
+released=$(jq -r '.time // empty | ./1000 | todate' <<<"$release")
 
 cat <<NOTES
-Released to Android Stable: ${released:-unknown}
+Released to Android $channel: ${released:-unknown}
 
 
 Chromium $version for Android, built from the
