@@ -20,7 +20,7 @@ for run in $(gh api "repos/$repo/actions/workflows/build.yml/runs?per_page=30" \
   [[ -n $resolve ]] || continue
   plan=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-$(gh auth token)}" \
     "https://api.github.com/repos/$repo/actions/jobs/$resolve/logs" | sed -E 's/^[0-9]{4}-[0-9-]+T[0-9:.]+Z //' \
-    | awk '/^\[$/ { f = 1 } f { print } /^\]$/ { exit }')
+    | awk '!d && /^\[$/ { f = 1 } f { print } f && /^\]$/ { f = 0; d = 1 }')
   planned=$(jq -c --argjson plan "${plan:-[]}" --argjson jobs "$jobs" '. + [
     $plan[] | . as $b
     | [$jobs[] | select(.name | startswith("\($b.version) \($b.arch) / "))] as $own
