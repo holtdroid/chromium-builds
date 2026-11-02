@@ -53,7 +53,8 @@ retry gclient sync --nohooks --no-history --shallow -D --force --jobs 16 \
 
 if [[ ${CI:-} == true ]]; then
   ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts \
-    || ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts --unsupported
+    || ./src/build/install-build-deps.sh --android --no-prompt --no-chromeos-fonts --unsupported \
+    || echo "::warning::install-build-deps.sh of $version failed on this Ubuntu, building with the runner's packages"
 fi
 
 retry gclient runhooks
