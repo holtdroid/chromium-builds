@@ -34,6 +34,9 @@ jobs:
           builds=$(scripts/resolve.sh "$MILESTONES" "$ARCHES")
           echo "$builds" | jq .
           echo "builds=$builds" >>"$GITHUB_OUTPUT"
+      - run: gh workflow run readme.yml || true
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   build:
     needs: resolve
