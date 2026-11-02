@@ -61,7 +61,10 @@ version to Android Stable, as `Released to Android Stable: <RFC 3339 UTC>`
 <!-- releases:end -->
 
 The table is rewritten by [`scripts/readme.sh`](scripts/readme.sh) after
-every published build.
+every published build. The icons are each version's own launcher icons,
+taken from the APKs by [`scripts/icons.sh`](scripts/icons.sh) and kept on the
+[`icons`](../../tree/icons) branch; versions whose icon looks the same share
+one file.
 
 The builds are plain Chromium, without patches. The only changes from
 Chromium's defaults are in [`scripts/build.sh`](scripts/build.sh):

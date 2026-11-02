@@ -1,19 +1,27 @@
 #!/usr/bin/env bash
-# Usage: readme.sh [README.md]
+# Usage: readme.sh [README.md] [icons dir]
 # Rewrites the release table between the releases markers of the README from
-# the repository's GitHub releases. Needs gh and jq.
+# the repository's GitHub releases, with the icons from icons.sh, served from
+# the icons branch. Needs gh and jq.
 set -euo pipefail
 
 readme=${1:-README.md}
+icons=${2:-}
 repo=${GITHUB_REPOSITORY:-$(gh repo view --json nameWithOwner -q .nameWithOwner)}
 
 releases=$(gh api "repos/$repo/releases?per_page=100" --paginate | jq -s 'add | map(select(.draft | not))')
 
-table=$(jq -r --arg repo "$repo" '
+index='{}'
+[[ -n $icons && -f $icons/index.json ]] && index=$(cat "$icons/index.json")
+
+table=$(jq -r --arg repo "$repo" --argjson icons "$index" '
   def esc: tostring | gsub("-"; "--") | gsub("_"; "__") | gsub(" "; "%20");
   def badge($label; $message; $color; $logo):
     "https://img.shields.io/badge/\($label | esc)-\($message | esc)-\($color)?style=flat-square"
     + (if $logo == "" then "" else "&logo=\($logo)&logoColor=white" end);
+  def icon($v; $kind):
+    ($icons[$v][$kind] // "") as $f
+    | if $f == "" then "" else "<img src=\"https://raw.githubusercontent.com/\($repo)/icons/\($f)\" width=\"20\" height=\"20\" alt=\"\($kind)\"> " end;
   def mb: (. / 1048576 | round | tostring) + " MB";
   def download($assets; $kind; $version; $arch; $color; $logo):
     ($assets | map(select(.name == "\($kind)-\($version)-\($arch).apk")) | first) as $a
@@ -33,8 +41,8 @@ table=$(jq -r --arg repo "$repo" '
           + " | [**\($v)**](https://github.com/\($repo)/releases/tag/\($v))"
           + "<br><sub>\($downloads) downloads</sub>"
           + " | \(if $date == "" then "—" else $date end)"
-          + " | \(download(.assets; "chromium"; $v; "x86_64"; "1A73E8"; "chromium")) \(download(.assets; "chromium"; $v; "arm64"; "1A73E8"; "chromium"))"
-          + " | \(download(.assets; "webview"; $v; "x86_64"; "3DDC84"; "android")) \(download(.assets; "webview"; $v; "arm64"; "3DDC84"; "android")) |")
+          + " | \(icon($v; "chromium"))\(download(.assets; "chromium"; $v; "x86_64"; "1A73E8"; "chromium")) \(download(.assets; "chromium"; $v; "arm64"; "1A73E8"; "chromium"))"
+          + " | \(icon($v; "webview"))\(download(.assets; "webview"; $v; "x86_64"; "3DDC84"; "android")) \(download(.assets; "webview"; $v; "arm64"; "3DDC84"; "android")) |")
   | join("\n")' <<<"$releases")
 
 summary="$(jq length <<<"$releases") versions, newest first. x86_64 is for emulators and redroid, arm64 for phones."

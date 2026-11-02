@@ -16,17 +16,33 @@ concurrency:
 jobs:
   readme:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 60
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v7
-      - run: scripts/readme.sh
+      - run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Icons
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq python3-pil >/dev/null
+          if git fetch -q --depth 1 origin icons; then
+            git worktree add -q icons FETCH_HEAD
+          else
+            git worktree add -q --orphan -b icons icons
+          fi
+          scripts/icons.sh icons
+          cd icons
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -qm 'icons: update'
+          git push -q origin HEAD:refs/heads/icons
+      - run: scripts/readme.sh README.md icons
       - name: Commit
         run: |
           git diff --quiet README.md && exit 0
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -qm 'docs: update the release table' README.md
           for _ in 1 2 3; do
             git pull -q --rebase && git push -q && exit 0
