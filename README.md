@@ -29,7 +29,7 @@ version to Android, with its channel, as
 
 <!-- releases:start -->
 
-28 versions published, 8 more queued or building, newest first. x86_64 is for emulators and redroid, arm64 for phones.
+28 versions published, 12 more queued or building, newest first. x86_64 is for emulators and redroid, arm64 for phones.
 
 | | Version | Released | Chromium | WebView |
 | --- | --- | --- | --- | --- |
@@ -69,6 +69,10 @@ version to Android, with its channel, as
 | ![M125](https://img.shields.io/badge/M125-stable-4285F4?style=flat-square&logo=googlechrome&logoColor=white) | **125.0.6422.186**<br><sub>building</sub> | 2024-06-13 | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) |
 | ![M124](https://img.shields.io/badge/M124-stable-4285F4?style=flat-square&logo=googlechrome&logoColor=white) | **124.0.6367.179**<br><sub>building</sub> | 2024-05-13 | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) |
 | ![M123](https://img.shields.io/badge/M123-stable-4285F4?style=flat-square&logo=googlechrome&logoColor=white) | **123.0.6312.121**<br><sub>building</sub> | 2024-04-23 | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) |
+| ![M122](https://img.shields.io/badge/M122-stable-4285F4?style=flat-square&logo=googlechrome&logoColor=white) | **122.0.6261.120**<br><sub>building</sub> | 2024-03-19 | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) |
+| ![M121](https://img.shields.io/badge/M121-stable-4285F4?style=flat-square&logo=googlechrome&logoColor=white) | **121.0.6167.180**<br><sub>building</sub> | 2024-02-20 | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) |
+| ![M120](https://img.shields.io/badge/M120-stable-4285F4?style=flat-square&logo=googlechrome&logoColor=white) | **120.0.6099.231**<br><sub>building</sub> | 2024-01-24 | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) |
+| ![M119](https://img.shields.io/badge/M119-stable-4285F4?style=flat-square&logo=googlechrome&logoColor=white) | **119.0.6045.194**<br><sub>building</sub> | 2023-12-05 | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) | ![x86_64](https://img.shields.io/badge/x86__64-building-dfb317?style=flat-square) ![arm64](https://img.shields.io/badge/arm64-building-dfb317?style=flat-square) |
 
 <!-- releases:end -->
 
