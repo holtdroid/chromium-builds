@@ -42,7 +42,7 @@ solutions = [{
   "name": "src",
   "url": "https://chromium.googlesource.com/chromium/src.git",
   "managed": False,
-  "custom_deps": {},
+  "custom_deps": {"src/third_party/clang-format/script": None},
   "custom_vars": {"checkout_pgo_profiles": False},
 }]
 target_os = ["android"]
