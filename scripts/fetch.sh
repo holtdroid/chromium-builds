@@ -57,7 +57,11 @@ python_env() {
 if ((milestone < 119)); then
   command -v patchelf >/dev/null || sudo apt-get install -y -qq patchelf
   python_env py3 3.8 python3 python3.8
-  ((milestone < 92)) && python_env py2 2.7 python python2 python2.7
+  if ((milestone < 92)); then
+    python_env py2 2.7 python python2 python2.7
+  elif ((milestone < 94)); then
+    python_env py2 2.7 python2 python2.7
+  fi
 fi
 [[ -d bin ]] && export PATH="$root/bin:$PATH"
 
@@ -92,6 +96,7 @@ if [[ ${CI:-} == true ]]; then
 fi
 
 retry gclient runhooks
+rm -f src/third_party/llvm-build/Release+Asserts/lib/libstdc++.so*
 py=python3
 [[ -x bin/python ]] && py=python
 for a in amd64 i386; do "$py" src/build/linux/sysroot_scripts/install-sysroot.py --arch=$a; done
