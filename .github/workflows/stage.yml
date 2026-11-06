@@ -133,7 +133,7 @@ jobs:
           head -1 notes.md | grep -q 'Android Stable' || pre=(--prerelease)
           for n in 1 2 3 4 5; do
             gh release view "$VERSION" >/dev/null 2>&1 \
-              || gh release create "$VERSION" --title "Chromium $VERSION" --latest=false "${pre[@]}" --notes-file notes.md \
+              || gh release create "$VERSION" --title "Chromium and WebView $VERSION for Android" --latest=false "${pre[@]}" --notes-file notes.md \
               || { sleep $((n * 30)); continue; }
             gh release upload "$VERSION" dist/*.apk --clobber && break
             sleep $((n * 30))

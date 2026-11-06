@@ -8,9 +8,27 @@
   <a href="https://github.com/holtdroid">All repositories</a>
 </p>
 
-Chromium for Android, built from release tags with proprietary codecs, for
-x86_64 and arm64. Each [release](../../releases) is one Chromium version
-(the last Android Stable patch of its milestone) and holds:
+# Chromium and Android WebView APKs, every version
+
+Old and current **Chromium browser** and **Android System WebView** APKs
+for testing websites and WebView apps on the browser version a bug was
+reported on. One release per Chromium milestone, from **83** (the WebView
+that Android 11 shipped with) to the newest Stable, plus the current Beta.
+Each is built from the official release tag with proprietary codecs, for
+**x86_64** (Android emulators, redroid, Genymotion) and **arm64** (phones).
+
+- **Any version, side by side with Chrome.** The browser installs as
+  `org.chromium.chrome`, next to Google Chrome, and never updates itself.
+- **Plain upstream Chromium.** No patches, no field trials, no Google
+  services, so a page behaves the same on every run.
+- **Built in public.** Every APK comes from a GitHub Actions run of the
+  scripts in this repository; the logs show the tag, the build arguments
+  and every step.
+- **MP4, H.264, AAC and HEVC play**, like in Chrome, through the device's
+  own decoders.
+
+Each [release](../../releases) is one Chromium version (the last Android
+Stable patch of its milestone) and holds:
 
 | Asset | What |
 | --- | --- |
@@ -121,23 +139,95 @@ taken from the APKs by [`scripts/icons.sh`](scripts/icons.sh) and kept on the
 [`icons`](../../tree/icons) branch; versions whose icon looks the same share
 one file. The download badges are fixed-width SVGs kept on the same branch.
 
+## Install
+
+The browser, on an emulator or a phone with USB debugging:
+
+```sh
+adb install chromium-120.0.6099.230-x86_64.apk
+adb shell am start -a android.intent.action.VIEW -d https://example.com org.chromium.chrome
+```
+
+The WebView provider, then switch the system to it:
+
+```sh
+adb install webview-120.0.6099.230-x86_64.apk
+adb shell cmd webviewupdate set-webview-implementation com.android.webview
+adb shell dumpsys webviewupdate | grep 'Current WebView package'
+```
+
+Android accepts `com.android.webview` only where it is a listed provider
+signed with the same key: AOSP emulator images (not *Google APIs* or
+*Google Play* ones), redroid, AOSP builds, or rooted devices. Pick the
+architecture of the device: x86_64 for emulators on a PC, arm64 for phones
+and emulators on Apple Silicon.
+
+To debug pages, open `chrome://inspect` in a desktop Chrome while the
+device is connected over ADB. Chromium's pages are always inspectable;
+WebView pages are when the app enables `setWebContentsDebuggingEnabled`,
+which [Holtdroid](https://github.com/holtdroid/holtdroid) turns on at
+runtime without touching the APK.
+
+## Chromium or Chrome
+
+[Chromium](https://www.chromium.org/) is the open-source browser that
+Google Chrome is built from. Both share Blink, V8, the network stack and
+the version number, so a layout, JavaScript or CSS bug in Chrome 112 shows
+up in Chromium 112 too. Chrome adds Google's closed parts on top:
+
+| | Chromium (these builds) | Google Chrome |
+| --- | --- | --- |
+| Blink, V8, DevTools | same | same |
+| Version numbers and release tags | same | same |
+| MP4, H.264, AAC, HEVC | yes (`proprietary_codecs`) | yes |
+| Install any old version, next to the current one | yes | no, Play installs the newest only |
+| Automatic updates | none | Play Store |
+| Field trials (server-side experiments) | none | yes, they differ between devices |
+| Google sign-in, sync, Play services | no | yes |
+| Safe Browsing | no | yes |
+| Widevine DRM (Netflix and the like) | no | yes |
+| Signed by | Chromium's public debug key | Google |
+
+That makes Chromium a good fit for testing: the version is pinned, nothing
+updates under you, and no experiment changes behaviour from one device to
+the next. For bugs in the Google-only parts (DRM, sign-in, Safe Browsing,
+a specific field trial), test in Chrome itself.
+
+The same goes for WebView. *Android System WebView*
+(`com.google.android.webview`), which apps on Play devices render with, is
+the Chrome flavour of the same code; `com.android.webview` from these
+releases is the AOSP flavour, the one Android's own images ship.
+
+## Good for
+
+- reproducing a website or WebView bug on the exact Chrome version from a
+  bug report or a crash log;
+- checking a page against the oldest browser your users still run, for
+  example the WebView that Android 11 shipped with (milestone 83);
+- bisecting the milestone where something changed;
+- CI and screenshot tests that need a browser version that never moves;
+- emulators and [redroid](https://github.com/remote-android/redroid-doc)
+  containers, where Google Play isn't there to install Chrome;
+- media tests with MP4 and H.264, which stock Chromium builds don't play.
+
+## Built for Holtdroid
+
+They are made for [Holtdroid](https://github.com/holtdroid/holtdroid), a
+self-hosted portal that launches Android devices in the browser with
+DevTools for the app's WebViews, and pick the Chromium version per
+session. They work just as well on their own.
+
+## What is in a build
+
 The builds are plain Chromium, without patches. The only changes from
 Chromium's defaults are in [`scripts/build.sh`](scripts/build.sh):
 a release build without symbols or Android lint, 64-bit only, and `proprietary_codecs`
 with `ffmpeg_branding = "Chrome"`, so MP4, H.264, AAC and HEVC play through
 the device's own decoders. Everything is signed with Chromium's public debug
-key.
+key, so a newer release installs over an older one, but not over Google's
+own WebView or Chrome.
 
-They are made for [Holtdroid](https://github.com/holtdroid/holtdroid), to
-reproduce web and WebView bugs on the browser version they were reported on,
-and are useful for any emulator or test device.
-
-## Not Google Chrome
-
-No Google sign-in, sync, Play services, Safe Browsing or Widevine (DRM
-video doesn't play). The WebView installs only where the system accepts
-`com.android.webview` as a provider: AOSP-based images whose built-in
-WebView is signed with the same debug key, or rooted devices.
+A summary for AI assistants and crawlers is in [`llms.txt`](llms.txt).
 
 ## Patents
 
