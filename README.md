@@ -134,9 +134,10 @@ twelve jobs in a row:
 Because the sources always carry the same mtime, a build directory from
 another machine stays up to date and the build resumes where it stopped.
 
-Milestones before 119 take depot_tools as it was on the day of their tag,
-and those before 92, whose build still runs on Python 2, get Python 2.7 from
-conda-forge.
+Milestones before 119 take depot_tools as it was on the day of their tag and
+Python 3.8 from conda-forge, since their scripts need modules Python 3.12
+dropped; those before 92, whose build still runs on Python 2, get Python 2.7
+too.
 
 Run the **build** workflow with milestones (`130-156`, `148,152`,
 `latest`, `beta`), full versions (`156.0.8078.73`) and architectures. A

@@ -40,18 +40,26 @@ if [[ ! -d depot_tools ]]; then
   fi
 fi
 
-if ((milestone < 92)) && [[ ! -x bin/python ]]; then
-  command -v patchelf >/dev/null || sudo apt-get install -y -qq patchelf
-  curl -fsSL https://micro.mamba.pm/api/micromamba/linux-64/2.3.3 | tar -xj -C "$tmp" bin/micromamba
-  retry "$tmp/bin/micromamba" create -q -y -r "$tmp/mamba" -p "$root/py2" -c conda-forge python=2.7
-  patchelf --set-rpath "$root/py2/lib" "$root/py2/bin/python2.7"
+python_env() {
+  local name=$1 version=$2 link
+  shift 2
+  [[ -x $name/bin/python$version ]] && return
+  [[ -x $tmp/bin/micromamba ]] || curl -fsSL https://micro.mamba.pm/api/micromamba/linux-64/2.3.3 | tar -xj -C "$tmp" bin/micromamba
+  retry "$tmp/bin/micromamba" create -q -y -r "$tmp/mamba" -p "$root/$name" -c conda-forge "python=$version"
+  patchelf --set-rpath "$root/$name/lib" "$root/$name/bin/python$version"
   mkdir -p bin
-  for name in python python2 python2.7; do
-    printf '#!/bin/sh\nexec %q "$@"\n' "$root/py2/bin/python2.7" >"bin/$name"
-    chmod +x "bin/$name"
+  for link in "$@"; do
+    printf '#!/bin/sh\nexec %q "$@"\n' "$root/$name/bin/python$version" >"bin/$link"
+    chmod +x "bin/$link"
   done
+}
+
+if ((milestone < 119)); then
+  command -v patchelf >/dev/null || sudo apt-get install -y -qq patchelf
+  python_env py3 3.8 python3 python3.8
+  ((milestone < 92)) && python_env py2 2.7 python python2 python2.7
 fi
-[[ -x bin/python ]] && export PATH="$root/bin:$PATH"
+[[ -d bin ]] && export PATH="$root/bin:$PATH"
 
 export PATH="$root/depot_tools:$PATH" DEPOT_TOOLS_UPDATE=0
 export GIT_CONFIG_COUNT=1 \
@@ -66,7 +74,7 @@ solutions = [{
   "url": "https://chromium.googlesource.com/chromium/src.git",
   "managed": False,
   "custom_deps": {"src/third_party/clang-format/script": None},
-  "custom_vars": {"checkout_pgo_profiles": False},
+  "custom_vars": {"checkout_pgo_profiles": False, "checkout_traffic_annotation_tools": False},
 }]
 target_os = ["android"]
 EOF

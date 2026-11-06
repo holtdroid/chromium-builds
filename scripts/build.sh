@@ -9,7 +9,7 @@ arch=${1:?arch}
 limit=${2:-0}
 root=${CHROMIUM_ROOT:-$PWD/chromium}
 export PATH="$root/depot_tools:$PATH" DEPOT_TOOLS_UPDATE=0
-[[ -x $root/bin/python ]] && export PATH="$root/depot_tools:$root/bin:$PATH"
+[[ -d $root/bin ]] && export PATH="$root/depot_tools:$root/bin:$PATH"
 
 case $arch in
   x86_64) cpu=x64 ;;
