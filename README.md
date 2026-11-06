@@ -134,6 +134,12 @@ Run the **build** workflow with milestones (`130-156`, `148,152`,
 version that is already released is skipped. A daily run builds the newest
 Stable patch and the newest Beta.
 
+Runners get lost, run out of disk and hit network errors, so
+[`retry.yml`](.github/workflows/retry.yml) reruns the failed jobs of a build
+run that failed within the last day, up to three attempts in all, when the
+run finishes and hourly. A rerun job resumes from the build directory its
+previous stage left.
+
 ### Compiler cache
 
 With the repository variables `SCCACHE_BUCKET` and `SCCACHE_REGION` and the

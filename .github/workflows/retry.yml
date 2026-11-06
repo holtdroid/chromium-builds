@@ -1,0 +1,33 @@
+name: retry
+
+on:
+  workflow_run:
+    workflows: [build]
+    types: [completed]
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+concurrency:
+  group: retry
+
+jobs:
+  retry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      ATTEMPTS: 3
+    steps:
+      - run: |
+          since=$(date -u -d '1 day ago' +%Y-%m-%dT%H:%M:%SZ)
+          gh api "repos/$GH_REPO/actions/workflows/build.yml/runs?status=failure&per_page=100" \
+            --jq ".workflow_runs[] | select(.run_attempt < $ATTEMPTS and .updated_at > \"$since\") | \"\(.id) \(.run_attempt)\"" \
+            | while read -r id attempt; do
+                echo "rerunning the failed jobs of run $id (attempt $attempt)"
+                gh run rerun "$id" --failed || echo "::warning::run $id could not be rerun"
+              done
