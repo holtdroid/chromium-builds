@@ -182,5 +182,9 @@
   "84.0.4147.125": {
     "chromium": "b22e7c3f87735b07.webp",
     "webview": "4fef962fa3084e0f.webp"
+  },
+  "85.0.4183.127": {
+    "chromium": "b25f8bdb10b7c289.webp",
+    "webview": "98683aec4ccbf10c.webp"
   }
 }
