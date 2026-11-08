@@ -40,6 +40,9 @@ proprietary_codecs = true
 ffmpeg_branding = "Chrome"
 enable_hevc_parser_and_hw_decoder = true
 EOF
+  if (($(sed -n 's/^MAJOR=//p' chrome/VERSION) < 100)); then
+    echo 'disable_android_lint = true' >>"$out/args.gn"
+  fi
   if [[ -n ${SCCACHE_BUCKET:-} ]] && command -v sccache >/dev/null; then
     echo 'cc_wrapper = "sccache"' >>"$out/args.gn"
   fi

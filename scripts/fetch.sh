@@ -56,6 +56,29 @@ python_env() {
 
 if ((milestone < 119)); then
   command -v patchelf >/dev/null || sudo apt-get install -y -qq patchelf
+  mkdir -p bin
+  git_shim=bin/git
+  {
+    printf '#!/usr/bin/env bash\nreal=%q\n' "$(command -v git)"
+    cat <<'SHIM'
+"$real" "$@" && exit
+rc=$?
+template='' url=''
+for arg in "$@"; do
+  case $arg in
+    --template=*) template=${arg#--template=} ;;
+    https://*) url=$arg ;;
+  esac
+done
+[[ " $* " == *" clone "* && -s $template/shallow && -n $url ]] || exit $rc
+dir=${*: -1}
+rm -rf "$dir"
+"$real" init -q "$dir"
+"$real" -C "$dir" remote add origin "$url"
+"$real" -C "$dir" fetch -q --depth 1 origin "$(cat "$template/shallow")"
+SHIM
+  } >"$git_shim"
+  chmod +x "$git_shim"
   python_env py3 3.8 python3 python3.8
   if ((milestone < 92)); then
     python_env py2 2.7 python python2 python2.7
@@ -97,6 +120,12 @@ fi
 
 retry gclient runhooks
 rm -f src/third_party/llvm-build/Release+Asserts/lib/libstdc++.so*
+if ldd src/third_party/llvm-build/Release+Asserts/bin/clang | grep -q 'libtinfo.so.5 => not found'; then
+  curl -fsSL --retry 5 --retry-all-errors --retry-delay 10 -o "$tmp/libtinfo5.deb" \
+    http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.3_amd64.deb
+  dpkg-deb -x "$tmp/libtinfo5.deb" "$tmp/libtinfo5"
+  cp -a "$tmp"/libtinfo5/lib/x86_64-linux-gnu/libtinfo.so.5* src/third_party/llvm-build/Release+Asserts/lib/
+fi
 py=python3
 [[ -x bin/python ]] && py=python
 for a in amd64 i386; do "$py" src/build/linux/sysroot_scripts/install-sysroot.py --arch=$a; done

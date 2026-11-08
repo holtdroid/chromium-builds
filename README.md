@@ -250,7 +250,9 @@ Milestones before 119 take depot_tools as it was on the day of their tag and
 Python 3.8 from conda-forge, since their scripts need modules Python 3.12
 dropped; those before 94, whose build still runs some steps on Python 2,
 get Python 2.7 too. The libstdc++ that older clang packages carry is removed,
-so their linker loads the system's, which Ubuntu's libraries need.
+so their linker loads the system's, which Ubuntu's libraries need. The clang
+of some milestones needs `libtinfo.so.5`, which comes from an older Ubuntu
+package. Milestones before 100 turn Android lint off with its old argument.
 
 Run the **build** workflow with milestones (`130-156`, `148,152`,
 `latest`, `beta`), full versions (`156.0.8078.73`) and architectures. A
