@@ -258,5 +258,9 @@
   "112.0.5615.136": {
     "chromium": "e1f9458a57a09eaf.webp",
     "webview": "4fef962fa3084e0f.webp"
+  },
+  "94.0.4606.85": {
+    "chromium": "b22e7c3f87735b07.webp",
+    "webview": "4fef962fa3084e0f.webp"
   }
 }
