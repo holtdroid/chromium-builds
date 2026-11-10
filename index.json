@@ -294,5 +294,9 @@
   "118.0.5993.112": {
     "chromium": "e1f9458a57a09eaf.webp",
     "webview": "4fef962fa3084e0f.webp"
+  },
+  "97.0.4692.98": {
+    "chromium": "b22e7c3f87735b07.webp",
+    "webview": "4fef962fa3084e0f.webp"
   }
 }
