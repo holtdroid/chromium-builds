@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Usage: resolve.sh <milestones> <arches>
-#   milestones: "latest", "beta", "150", "130-156", "148,150-152" or full versions "156.0.8078.73"
+#   milestones: "latest", "previous", "beta", "150", "130-156", "148,150-152" or full versions "156.0.8078.73"
 #   arches:     "x86_64,arm64"
 # Prints a JSON array of {version, commit, milestone, arch} for the newest
 # Android Stable release of each milestone; "beta" is the newest Android Beta.
@@ -20,6 +20,7 @@ for part in "${parts[@]}"; do
   part=${part// /}
   case $part in
     latest) wanted+=("$(jq -r 'map(.milestone) | max' <<<"$stable")") ;;
+    previous) wanted+=("$(jq -r 'map(.milestone) | max - 1' <<<"$stable")") ;;
     beta) wanted+=("$(jq -r 'map(select(.channel == "Beta")) | max_by(.version | split(".") | map(tonumber)).version' <<<"$releases")") ;;
     *.*.*.*) wanted+=("$part") ;;
     *-*) for ((m = ${part%-*}; m <= ${part#*-}; m++)); do wanted+=("$m"); done ;;
@@ -37,5 +38,5 @@ for w in "${wanted[@]}"; do
       // error("no Android Stable release for milestone \($m)")' <<<"$stable"
   fi
 done | jq -sc --arg arches "$arches" '
-  [ .[] as $r | ($arches | split(",") | .[] | select(. != "")) as $a
+  unique_by(.version) | [ .[] as $r | ($arches | split(",") | .[] | select(. != "")) as $a
     | {version: $r.version, commit: $r.hashes.chromium, milestone: $r.milestone, arch: $a} ]'

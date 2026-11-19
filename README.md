@@ -268,9 +268,11 @@ of some milestones needs `libtinfo.so.5`, which comes from an older Ubuntu
 package. Milestones before 100 turn Android lint off with its old argument.
 
 Run the **build** workflow with milestones (`130-156`, `148,152`,
-`latest`, `beta`), full versions (`156.0.8078.73`) and architectures. A
-version that is already released is skipped. A daily run builds the newest
-Stable patch and the newest Beta.
+`latest`, `previous`, `beta`), full versions (`156.0.8078.73`) and
+architectures. A version that is already released, or listed twice, is
+built once. A daily run builds the newest Stable patch of the two newest
+milestones, since Google still patches the previous one for a while, and the
+newest Beta.
 
 Runners get lost, run out of disk and hit network errors, so
 [`retry.yml`](.github/workflows/retry.yml) reruns the failed jobs of a build
