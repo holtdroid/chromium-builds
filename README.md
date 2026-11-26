@@ -212,14 +212,20 @@ Google Chrome is built from. Both share Blink, V8, the network stack and
 the version number, so a layout, JavaScript or CSS bug in Chrome 112 shows
 up in Chromium 112 too. Chrome adds Google's closed parts on top:
 
-| | Chromium (these builds) | Google Chrome |
+| | Chromium (these builds) | Google Chrome and Android System WebView |
 | --- | --- | --- |
 | Blink, V8, DevTools | same | same |
 | Version numbers and release tags | same | same |
 | MP4, H.264, AAC, HEVC | yes (`proprietary_codecs`) | yes |
+| Browser package | `org.chromium.chrome`, installs next to Chrome | `com.android.chrome` |
+| WebView package | `com.android.webview`, the AOSP provider | `com.google.android.webview` |
+| APK layout | standalone APKs, 64-bit only | Trichrome (a shared library plus the app), 32- and 64-bit |
 | Install any old version, next to the current one | yes | no, Play installs the newest only |
 | Automatic updates | none | Play Store |
 | Field trials (server-side experiments) | none | yes, they differ between devices |
+| `android:debuggable` | yes, so `run-as` and debuggers work | no |
+| Compiler optimizations | release build without PGO and ThinLTO | official build with PGO and ThinLTO |
+| Google API keys | none, features that call Google APIs don't work | yes |
 | Google sign-in, sync, Play services | no | yes |
 | Safe Browsing | no | yes |
 | Widevine DRM (Netflix and the like) | no | yes |
@@ -227,7 +233,9 @@ up in Chromium 112 too. Chrome adds Google's closed parts on top:
 
 That makes Chromium a good fit for testing: the version is pinned, nothing
 updates under you, and no experiment changes behaviour from one device to
-the next. For bugs in the Google-only parts (DRM, sign-in, Safe Browsing,
+the next. Without Google's profile-guided optimizations the builds are
+larger and somewhat slower than Chrome, so use them for behaviour, not for
+benchmarks. For bugs in the Google-only parts (DRM, sign-in, Safe Browsing,
 a specific field trial), test in Chrome itself.
 
 The same goes for WebView. *Android System WebView*
