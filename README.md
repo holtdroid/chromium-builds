@@ -4,9 +4,16 @@
 
 <p align="center">
   Part of <a href="https://github.com/holtdroid/holtdroid"><b>Holtdroid</b></a> ·
+  <a href="https://holtdroid.github.io/chromium-builds/"><b>Website</b></a> ·
   <a href="https://holtdroid.github.io/sources/chromium/">Documentation</a> ·
   <a href="https://github.com/holtdroid">All repositories</a>
 </p>
+
+> [!NOTE]
+> **Unofficial side project.** Not affiliated with, endorsed by or connected
+> to Google, Google Chrome or the Chromium project. The APKs are built from
+> Chromium's public source code by this repository's own scripts. Chrome is
+> a trademark of Google LLC.
 
 # Chromium and Android WebView APKs, every version
 
@@ -152,6 +159,12 @@ curl -fsSL https://raw.githubusercontent.com/holtdroid/chromium-builds/main/rele
   | jq -r '.versions[] | select(.milestone == 120) | .apks[] | select(.kind == "webview" and .arch == "x86_64") | .url'
 ```
 
+The website, [holtdroid.github.io/chromium-builds](https://holtdroid.github.io/chromium-builds/),
+shows the same list with a page for every milestone. It is built from
+`releases.json` by [`scripts/site.py`](scripts/site.py) and kept on the
+[`gh-pages`](../../tree/gh-pages) branch, and the notes of every release are
+written from the same data by [`scripts/release-notes.py`](scripts/release-notes.py).
+
 Each release also carries its own entry as `release.json`, next to the
 APKs, without the download counts; the newest Stable one is always at
 `https://github.com/holtdroid/chromium-builds/releases/latest/download/release.json`.
@@ -258,8 +271,14 @@ A summary for AI assistants and crawlers is in [`llms.txt`](llms.txt).
 H.264, AAC and HEVC are covered by patents in some countries. Chromium on
 Android decodes them through the platform's `MediaCodec`: these builds
 parse the formats and leave decoding to the device. Whether that needs a license where you are
-is for you to judge. The build scripts are Apache-2.0; Chromium itself is
-under its [own licenses](https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE).
+is for you to judge.
+
+## License
+
+The build scripts in this repository are licensed under either of
+[MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option. The APKs
+are Chromium, which stays under its
+[own licenses](https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE).
 
 ## How it is built
 

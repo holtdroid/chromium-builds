@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: readme
@@ -40,6 +41,24 @@ jobs:
       - name: Release JSON
         continue-on-error: true
         run: scripts/release-json.sh releases.json
+      - name: Release notes
+        continue-on-error: true
+        run: python3 scripts/release-notes.py releases.json
+      - name: Site
+        continue-on-error: true
+        run: |
+          if git fetch -q --depth 1 origin gh-pages; then
+            git worktree add -q pages FETCH_HEAD
+          else
+            git worktree add -q --orphan -b gh-pages pages
+          fi
+          python3 scripts/site.py releases.json pages
+          cd pages
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -qm 'site: update'
+          git push -q origin HEAD:refs/heads/gh-pages
+          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" >/dev/null || true
       - name: Publish icons and badges
         working-directory: icons
         run: |

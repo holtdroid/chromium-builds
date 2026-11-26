@@ -1,0 +1,347 @@
+__HEAD__
+<div class="notice" role="note">
+  <div class="wrap"><b>UNOFFICIAL</b><p>A personal side project, not affiliated with, endorsed by or connected to Google, Google Chrome or the Chromium project. The APKs are built from Chromium's public source code by this project's own scripts. Chrome is a trademark of Google LLC.</p></div>
+</div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><span class="p">$</span> chromium-builds</a>
+    <nav aria-label="Sections">
+      <a href="#versions">VERSIONS</a>
+      <a href="#install">INSTALL</a>
+      <a href="#chrome">VS CHROME</a>
+      <a href="#files">FILES</a>
+      <a class="gh" href="https://github.com/holtdroid/chromium-builds" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="label">NAME</div>
+        <h1>Chromium &amp; Android WebView APKs, <span class="n">83</span>–<span class="n" id="maxm"></span></h1>
+        <p class="lede">Every Chromium milestone since Android 11, as the browser and the WebView. Plain upstream builds from release tags, for testing a page or an app on the exact version a bug was reported on.</p>
+        <ul class="facts">
+          <li>x86_64 for emulators, arm64 for phones</li>
+          <li>installs next to Google Chrome</li>
+          <li>H.264, AAC and HEVC play</li>
+          <li>no auto-updates, no field trials</li>
+        </ul>
+      </div>
+      <div class="term" aria-label="Download command builder">
+        <div class="term-top"><i></i><i></i><i></i><span id="term-title">~/test-device</span></div>
+        <div class="term-body">
+          <div class="opts">
+            <span>--milestone</span><select id="m" aria-label="Milestone"></select>
+            <span>--arch</span><div class="chips" id="arch"><button type="button" class="chip" data-v="x" aria-pressed="true">x86_64</button><button type="button" class="chip" data-v="a" aria-pressed="false">arm64</button></div>
+          </div>
+          <div class="code" id="cmd"><div class="code-bar"><span>SHELL</span><button class="copy" type="button" data-copy="cmd">copy</button></div><pre></pre></div>
+          <div class="dlrow">
+            <a id="d-c" target="_blank" rel="noopener"><span class="k"><img id="d-ic" alt="" width="20" height="20">chromium</span><small></small></a>
+            <a id="d-w" target="_blank" rel="noopener"><span class="k"><img id="d-iw" alt="" width="20" height="20">webview</span><small></small></a>
+          </div>
+          <div class="out" id="out"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ruler" aria-labelledby="ruler-title">
+    <div class="wrap">
+      <div class="ruler-head">
+        <h3 id="ruler-title" class="label">MILESTONES</h3>
+        <p class="legend"><span class="l-year">new year</span><span>hover to preview · click or drag to choose</span></p>
+      </div>
+      <div class="scale" id="scale"><div class="ticks" id="ticks"></div></div>
+    </div>
+  </section>
+
+  <section class="block" id="versions" aria-labelledby="versions-title">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="label">VERSIONS</div>
+        <h2 id="versions-title">Every release</h2>
+        <p>The last Android Stable patch of each milestone, newer patches as Google ships them, and the current Beta. Each file links straight to GitHub Releases.</p>
+      </div>
+      <div class="filters">
+        <input type="search" id="q" placeholder="grep 120" aria-label="Filter versions">
+        <div class="seg" role="group" aria-label="Channel" id="f-ch">
+          <button type="button" data-v="" aria-pressed="true">all</button>
+          <button type="button" data-v="s" aria-pressed="false">stable</button>
+          <button type="button" data-v="b" aria-pressed="false">beta</button>
+        </div>
+        <div class="seg" role="group" aria-label="Architecture" id="f-arch">
+          <button type="button" data-v="x" aria-pressed="true">x86_64</button>
+          <button type="button" data-v="a" aria-pressed="false">arm64</button>
+        </div>
+        <span class="count" id="count"></span>
+      </div>
+      <div class="table-wrap">
+        <table class="vtable">
+          <colgroup><col style="width:26%"><col style="width:12%"><col style="width:15%"><col style="width:17%"><col style="width:17%"><col style="width:13%"></colgroup>
+          <thead><tr><th>Version</th><th>Channel</th><th>Released</th><th>Browser</th><th>WebView</th><th>Checksums</th></tr></thead>
+          <tbody id="rows">__ROWS__</tbody>
+        </table>
+      </div>
+      <button type="button" class="more" id="more">ls --all</button>
+    </div>
+  </section>
+
+  <section class="block" id="install" aria-labelledby="install-title">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="label">INSTALL</div>
+        <h2 id="install-title">Three commands</h2>
+        <p>On an Android emulator, a redroid container or a phone with USB debugging.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Install the browser</h3><p>It installs as <span class="mono">org.chromium.chrome</span>, next to Chrome.</p>
+          <div class="code" id="s1"><div class="code-bar"><span>SHELL</span><button class="copy" type="button" data-copy="s1">copy</button></div><pre><span class="pr">$ </span>adb install chromium-<span class="tn">120.0.6099.231</span>-x86_64.apk</pre></div></li>
+        <li><h3>Switch the WebView</h3><p>On AOSP images, redroid or rooted devices.</p>
+          <div class="code" id="s2"><div class="code-bar"><span>SHELL</span><button class="copy" type="button" data-copy="s2">copy</button></div><pre><span class="pr">$ </span>adb install webview-<span class="tn">120.0.6099.231</span>-x86_64.apk
+<span class="pr">$ </span>adb shell cmd webviewupdate \
+    set-webview-implementation <span class="ts">com.android.webview</span></pre></div></li>
+        <li><h3>Open DevTools</h3><p>Then <span class="mono">chrome://inspect</span> in desktop Chrome.</p>
+          <div class="code" id="s3"><div class="code-bar"><span>SHELL</span><button class="copy" type="button" data-copy="s3">copy</button></div><pre><span class="pr">$ </span>adb shell am start -a android.intent.action.VIEW \
+    -d <span class="ts">https://example.com</span> org.chromium.chrome</pre></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="chrome" aria-labelledby="chrome-title">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="label">CHROMIUM VS CHROME</div>
+        <h2 id="chrome-title">Same engine, no Google extras</h2>
+        <p>Chrome is built from Chromium and shares its Blink, V8 and version numbers, so a rendering bug in Chrome 112 shows up in Chromium 112.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><th></th><th>chromium-builds</th><th>Google Chrome</th></tr></thead>
+          <tbody>
+            <tr><td>blink, v8, devtools</td><td class="yes">same</td><td class="yes">same</td></tr>
+            <tr><td>any old version</td><td class="yes">yes, next to the current one</td><td class="no">newest only</td></tr>
+            <tr><td>auto-updates</td><td class="yes">never</td><td class="no">Play Store</td></tr>
+            <tr><td>field trials</td><td class="yes">none</td><td class="no">differ per device</td></tr>
+            <tr><td>h.264, aac, hevc</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+            <tr><td>sign-in, safe browsing</td><td class="no">no</td><td class="yes">yes</td></tr>
+            <tr><td>widevine drm</td><td class="no">no</td><td class="yes">yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="files" aria-labelledby="files-title">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="label">FILES</div>
+        <h2 id="files-title">For scripts and CI</h2>
+        <p>The same data as this page, as JSON, refreshed every hour.</p>
+      </div>
+      <div class="files">
+        <article class="fcard">
+          <h3><span class="ext">JSON</span>releases.json</h3>
+          <p>Every version, newest first, with direct APK links, icons, sizes, SHA-256 and dates.</p>
+          <a class="path" href="https://raw.githubusercontent.com/holtdroid/chromium-builds/main/releases.json" target="_blank" rel="noopener">https://raw.githubusercontent.com/holtdroid/chromium-builds/main/releases.json</a>
+        </article>
+        <article class="fcard">
+          <h3><span class="ext">JSON</span>release.json</h3>
+          <p>One version's entry, attached to its own release. The latest link always points at the newest Stable.</p>
+          <a class="path" href="https://github.com/holtdroid/chromium-builds/releases/latest/download/release.json" target="_blank" rel="noopener">https://github.com/holtdroid/chromium-builds/releases/latest/download/release.json</a>
+        </article>
+        <article class="fcard">
+          <h3><span class="ext">TXT</span>llms.txt</h3>
+          <p>A short summary for AI assistants: what the builds are, when to use them, how the URLs are formed.</p>
+          <a class="path" href="https://raw.githubusercontent.com/holtdroid/chromium-builds/main/llms.txt" target="_blank" rel="noopener">https://raw.githubusercontent.com/holtdroid/chromium-builds/main/llms.txt</a>
+        </article>
+      </div>
+      <div class="code" id="j1"><div class="code-bar"><span>SHELL · WEBVIEW 120 FOR AN X86_64 EMULATOR</span><button class="copy" type="button" data-copy="j1">copy</button></div><pre><span class="pr">$ </span>curl -fsSL <span class="ts">https://raw.githubusercontent.com/holtdroid/chromium-builds/main/releases.json</span> \
+  | jq -r <span class="ts">'.versions[] | select(.milestone == 120)
+      | .apks[] | select(.kind == "webview" and .arch == "x86_64")
+      | .url'</span></pre></div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="notes-title">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="label">NOTES</div>
+        <h2 id="notes-title">Questions</h2>
+      </div>
+      <div class="qa">
+        <div><h3>Where can I get an old Chrome APK?</h3><p>Google Play installs only the newest Chrome. Chromium of the same milestone renders pages and runs JavaScript the same way.</p></div>
+        <div><h3>Which WebView did Android 11 ship with?</h3><p>Its AOSP images ship WebView 83, the oldest milestone here: <code>83.0.4103.106</code>.</p></div>
+        <div><h3>Why does the WebView refuse to install?</h3><p>Google APIs and Google Play emulator images accept only Google's signed WebView. Use an AOSP image, redroid or a rooted device.</p></div>
+        <div><h3>x86_64 or arm64?</h3><p>x86_64 for emulators on a PC and for redroid, arm64 for phones and for emulators on Apple Silicon.</p></div>
+        <div><h3>Are the builds modified?</h3><p>No. They come from Chromium's release tags without patches; only build arguments change. Every build log is public on GitHub Actions.</p></div>
+        <div><h3>How fast do new versions appear?</h3><p>A daily run picks up new Stable patches of the two newest milestones and the newest Beta. A build takes about half a day.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Unofficial side project, not affiliated with Google or the Chromium project · build scripts: MIT or Apache-2.0</span>
+    <span>see also: <a href="https://github.com/holtdroid/holtdroid" target="_blank" rel="noopener">holtdroid</a>, <a href="https://github.com/holtdroid/chromium-builds/releases" target="_blank" rel="noopener">releases</a></span>
+  </div>
+</footer>
+
+<script>
+const DATA = __DATA__;
+const FIRST = __FIRST__;
+const ICONS = __ICONS__;
+const REPO = "https://github.com/holtdroid/chromium-builds";
+const $ = (id) => document.getElementById(id);
+const name = (v, k, r) => `${k === "c" ? "chromium" : "webview"}-${v}-${r === "a" ? "arm64" : "x86_64"}.apk`;
+const url = (v, k, r) => `${REPO}/releases/download/${v}/${name(v, k, r)}`;
+const apk = (e, k, r) => e.a.find((x) => x.k === k && x.r === r);
+const mb = (b) => Math.round(b / 1048576) + " MB";
+
+const byM = new Map();
+for (const e of DATA) if (!byM.has(e.m) || e.c === "s" && byM.get(e.m).c === "b") byM.set(e.m, e);
+const ms = [...byM.keys()].sort((a, b) => a - b);
+const latest = DATA.find((e) => e.l) || DATA[0];
+const st = { m: latest.m, arch: "x", q: "", ch: "", farch: "x", all: false };
+$("maxm").textContent = ms[ms.length - 1];
+
+function renderHero(m = st.m) {
+  const preview = m !== st.m;
+  document.querySelector(".term").classList.toggle("previewing", preview);
+  $("term-title").innerHTML = preview ? `~/test-device <b>· preview ${m}</b>` : "~/test-device";
+  const e = byM.get(m), c = apk(e, "c", st.arch), w = apk(e, "w", st.arch);
+  const cu = url(e.v, "c", st.arch), wu = url(e.v, "w", st.arch);
+  $("cmd").querySelector("pre").innerHTML = `<span class="pr">$ </span>curl -LO <span class="ts">${cu}</span>\n<span class="pr">$ </span>adb install <span class="tk">${name(e.v, "c", st.arch)}</span>`;
+  $("cmd").dataset.text = `curl -LO ${cu}\nadb install ${name(e.v, "c", st.arch)}`;
+  $("d-c").href = cu; $("d-c").querySelector("small").textContent = mb(c.s); $("d-ic").src = ICONS[c.i] || "";
+  $("d-w").href = wu; $("d-w").querySelector("small").textContent = mb(w.s); $("d-iw").src = ICONS[w.i] || "";
+  $("out").innerHTML = `${e.c === "b" ? "beta" : "stable"} · released to Android ${e.d}\nsha256 ${c.h.slice(0, 32)}…\nSuccess <span class="cursor"></span>`;
+  $("m").value = String(m);
+  document.querySelectorAll(".tick").forEach((t) => t.setAttribute("aria-current", String(Number(t.dataset.m) === st.m)));
+}
+
+function renderTicks() {
+  const day = (d) => Date.parse(d + "T00:00:00Z");
+  const start = (m) => day(FIRST[m] || byM.get(m).d);
+  const years = [...new Set(ms.map((m) => (FIRST[m] || byM.get(m).d).slice(0, 4)))].map((y) => ({ kind: "year", label: y, t: day(`${y}-01-01`) }));
+  const marks = years;
+  $("ticks").innerHTML = ms.map((m, i) => {
+    const e = byM.get(m);
+    const from = start(m), to = i + 1 < ms.length ? start(ms[i + 1]) : from + 28 * 864e5;
+    const here = marks.filter((k) => (i === 0 ? k.t < to : k.t >= from && k.t < to));
+    const guides = here.map((k) => {
+      const f = Math.max(0, Math.min(1, (k.t - from) / (to - from)));
+      return `<span class="guide ${k.kind}${i > ms.length - 8 ? " end" : ""}" style="left:${(f * 100).toFixed(1)}%"${k.title ? ` title="${k.title}"` : ""}><b>${k.label}</b></span>`;
+    }).join("");
+    const major = m % 10 === 0;
+    const h = 22 + Math.min(1, (e.n || 0) / 30) * 40 + (major ? 14 : 0);
+    return `<button type="button" class="tick${major ? " major" : ""}${e.c === "b" ? " beta" : ""}" data-m="${m}" aria-label="Milestone ${m}, ${e.v}" title="${e.v} · first stable ${FIRST[m] || e.d}">${guides}<i style="height:${h}px"></i><span>${major || m === ms[0] || m === ms[ms.length - 1] ? m : ""}</span></button>`;
+  }).join("");
+  $("ticks").addEventListener("click", (ev) => {
+    if (suppressClick) return;
+    const t = ev.target.closest(".tick");
+    if (!t) return;
+    st.m = Number(t.dataset.m);
+    renderHero();
+  });
+}
+
+const ticksEl = $("ticks");
+let dragging = false, peekM = null, suppressClick = false;
+function tickAt(x) {
+  for (const t of ticksEl.children) {
+    const r = t.getBoundingClientRect();
+    if (x >= r.left && x < r.right) return t;
+  }
+  return null;
+}
+function showPeek(t) {
+  peekM = Number(t.dataset.m);
+  document.querySelectorAll(".tick.peek").forEach((x) => x.classList.remove("peek"));
+  t.classList.add("peek");
+  renderHero(peekM);
+}
+function endPeek() {
+  peekM = null;
+  document.querySelectorAll(".tick.peek").forEach((x) => x.classList.remove("peek"));
+  renderHero();
+}
+ticksEl.addEventListener("pointermove", (ev) => {
+  if (ev.pointerType !== "mouse") return;
+  const t = tickAt(ev.clientX);
+  if (t && Number(t.dataset.m) !== peekM) showPeek(t);
+});
+ticksEl.addEventListener("pointerdown", (ev) => {
+  if (ev.pointerType !== "mouse" || ev.button !== 0) return;
+  ev.preventDefault();
+  dragging = true;
+  ticksEl.setPointerCapture(ev.pointerId);
+  const t = tickAt(ev.clientX);
+  if (t) showPeek(t);
+});
+ticksEl.addEventListener("pointerup", (ev) => {
+  if (!dragging) return;
+  dragging = false;
+  suppressClick = true;
+  setTimeout(() => { suppressClick = false; });
+  if (peekM !== null) st.m = peekM;
+  const box = ticksEl.getBoundingClientRect();
+  const inside = ev.clientX >= box.left && ev.clientX < box.right && ev.clientY >= box.top && ev.clientY < box.bottom;
+  if (inside) renderHero(peekM ?? st.m); else endPeek();
+});
+ticksEl.addEventListener("pointercancel", () => { dragging = false; endPeek(); });
+ticksEl.addEventListener("pointerleave", () => { if (!dragging) endPeek(); });
+
+function renderRows() {
+  const q = st.q.trim(), r = st.farch;
+  const list = DATA.filter((e) => (!st.ch || e.c === st.ch) && (!q || e.v.startsWith(q) || String(e.m) === q));
+  const shown = st.all || q ? list : list.slice(0, 12);
+  $("rows").innerHTML = shown.map((e) => {
+    const c = apk(e, "c", r), w = apk(e, "w", r);
+    const pill = e.l ? `<span class="pill pill-l">latest</span>` : e.c === "b" ? `<span class="pill pill-b">beta</span>` : `<span class="pill pill-s">stable</span>`;
+    return `<tr>
+      <td><div class="ver"><img src="${ICONS[c.i] || ""}" alt="" width="26" height="26" loading="lazy"><a href="${e.m}/">${e.v}</a></div></td>
+      <td>${pill}</td>
+      <td class="dt">${e.d}</td>
+      <td><a class="file" href="${url(e.v, "c", r)}" target="_blank" rel="noopener"><span class="k">chromium</span><small>${mb(c.s)}</small></a></td>
+      <td><a class="file" href="${url(e.v, "w", r)}" target="_blank" rel="noopener"><span class="k">webview</span><small>${mb(w.s)}</small></a></td>
+      <td><button type="button" class="sha" data-text="${c.h}  ${name(e.v, "c", r)}\n${w.h}  ${name(e.v, "w", r)}">sha256</button></td>
+    </tr>`;
+  }).join("");
+  $("count").textContent = `${shown.length} of ${list.length}`;
+  $("more").hidden = st.all || !!q || list.length <= 12;
+}
+
+function seg(id, key, after) {
+  $(id).addEventListener("click", (ev) => {
+    const b = ev.target.closest("button");
+    if (!b) return;
+    $(id).querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    st[key] = b.dataset.v;
+    after();
+  });
+}
+
+$("m").innerHTML = [...ms].reverse().map((m) => `<option value="${m}">${m} · ${byM.get(m).v}</option>`).join("");
+$("m").addEventListener("change", (ev) => { st.m = Number(ev.target.value); renderHero(); });
+seg("arch", "arch", renderHero);
+seg("f-ch", "ch", renderRows);
+seg("f-arch", "farch", renderRows);
+$("q").addEventListener("input", (ev) => { st.q = ev.target.value; renderRows(); });
+$("more").addEventListener("click", () => { st.all = true; renderRows(); });
+document.addEventListener("click", async (ev) => {
+  const b = ev.target.closest("[data-copy], .sha");
+  if (!b) return;
+  const src = b.dataset.copy ? $(b.dataset.copy) : b;
+  const text = src.dataset.text || (src.querySelector("pre")?.textContent || "").replace(/^\$ /gm, "");
+  const old = b.textContent;
+  try { await navigator.clipboard.writeText(text); b.textContent = "copied"; } catch { b.textContent = "select it"; }
+  setTimeout(() => (b.textContent = old), 1400);
+});
+
+renderTicks();
+renderHero();
+renderRows();
+</script>
