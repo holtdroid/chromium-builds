@@ -16,7 +16,7 @@ Download URLs follow one pattern, where `<version>` is a release tag such as `12
 - `https://github.com/holtdroid/chromium-builds/releases/download/<version>/chromium-<version>-<arch>.apk`
 - `https://github.com/holtdroid/chromium-builds/releases/download/<version>/webview-<version>-<arch>.apk`
 
-The list of versions is the GitHub releases API: `https://api.github.com/repos/holtdroid/chromium-builds/releases`. The first line of each release's notes is `Released to Android <Stable|Beta>: <RFC 3339 UTC>`.
+Every version with direct APK URLs, sizes, SHA-256 digests, channels and dates is in one JSON file, newest first: `https://raw.githubusercontent.com/holtdroid/chromium-builds/main/releases.json` (`.versions[].apks[]` with `kind` chromium|webview, `arch`, `url`, `icon`, `size`, `sha256`). Each release also holds its own entry as `https://github.com/holtdroid/chromium-builds/releases/download/<version>/release.json`, and the newest Stable one at `https://github.com/holtdroid/chromium-builds/releases/latest/download/release.json`. The same data comes from the GitHub releases API: `https://api.github.com/repos/holtdroid/chromium-builds/releases`. The first line of each release's notes is `Released to Android <Stable|Beta>: <RFC 3339 UTC>`.
 
 ## Docs
 

@@ -36,7 +36,10 @@ jobs:
           scripts/icons.sh icons
       - run: |
           rm -rf icons/badges
-          scripts/readme.sh README.md icons
+          scripts/readme.sh README.md icons releases.json
+      - name: Release JSON
+        continue-on-error: true
+        run: scripts/release-json.sh releases.json
       - name: Publish icons and badges
         working-directory: icons
         run: |
@@ -47,8 +50,9 @@ jobs:
           git push -q origin HEAD:refs/heads/icons
       - name: Commit
         run: |
-          git diff --quiet README.md && exit 0
-          git commit -qm 'docs: update the release table' README.md
+          git add README.md releases.json
+          git diff --cached --quiet && exit 0
+          git commit -qm 'docs: update the release table'
           for _ in 1 2 3; do
             git pull -q --rebase && git push -q && exit 0
             sleep 10

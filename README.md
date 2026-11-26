@@ -140,7 +140,23 @@ version to Android, with its channel, as
 
 <!-- releases:end -->
 
-The table is rewritten by [`scripts/readme.sh`](scripts/readme.sh) when a
+The same list is in [`releases.json`](releases.json) for scripts and CI:
+every published version with its channel, the date Google released it to
+Android and the date it was published here, the Chromium commit, and for
+each APK its package, architecture, direct download URL, launcher icon,
+size, SHA-256 and build time. Fetch it from
+`https://raw.githubusercontent.com/holtdroid/chromium-builds/main/releases.json`:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/holtdroid/chromium-builds/main/releases.json \
+  | jq -r '.versions[] | select(.milestone == 120) | .apks[] | select(.kind == "webview" and .arch == "x86_64") | .url'
+```
+
+Each release also carries its own entry as `release.json`, next to the
+APKs, without the download counts; the newest Stable one is always at
+`https://github.com/holtdroid/chromium-builds/releases/latest/download/release.json`.
+
+The table and `releases.json` are rewritten by [`scripts/readme.sh`](scripts/readme.sh) when a
 build starts, after every published build and hourly. Versions that a
 running build is still working on are listed too, as queued or building. The icons are each version's own launcher icons,
 taken from the APKs by [`scripts/icons.sh`](scripts/icons.sh) and kept on the

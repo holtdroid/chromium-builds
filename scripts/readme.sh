@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-# Usage: readme.sh [README.md] [icons dir]
+# Usage: readme.sh [README.md] [icons dir] [releases.json]
 # Rewrites the release table between the releases markers of the README from
 # the repository's GitHub releases, with the icons from icons.sh, served from
 # the icons branch, and the builds that running build workflows have queued or
 # are building. The download badges are fixed-width SVGs written to
-# <icons dir>/badges and served from the icons branch too. Needs gh, jq and curl.
+# <icons dir>/badges and served from the icons branch too. With a third
+# argument it also writes every published version with its download links,
+# sizes, digests and dates as JSON. Needs gh, jq and curl.
 set -euo pipefail
 
 readme=${1:-README.md}
 here=$(cd "$(dirname "$0")" && pwd)
 icons=${2:-}
+json=${3:-}
 repo=${GITHUB_REPOSITORY:-$(gh repo view --json nameWithOwner -q .nameWithOwner)}
 
 releases=$(gh api "repos/$repo/releases?per_page=100" --paginate | jq -s 'add | map(select(.draft | not))')
@@ -38,7 +41,7 @@ done
 
 for channel in Beta Stable; do
   curl -fsS "https://chromiumdash.appspot.com/fetch_releases?channel=$channel&platform=Android&num=1000"
-done | jq -s 'add | map({key: .version, value: {channel, time}}) | from_entries' >"$tmp/dash.json"
+done | jq -s 'add | map({key: .version, value: {channel, time, commit: .hashes.chromium}}) | from_entries' >"$tmp/dash.json"
 echo "$planned" >"$tmp/planned.json"
 
 index='{}'
@@ -74,7 +77,7 @@ table=$(jq -r --arg repo "$repo" --argjson icons "$index" --slurpfile planned "$
         | (.body // "" | capture("Released to Android (?<c>[A-Za-z]+): (?<d>[0-9-]{10})") // {c: "Stable", d: ""}) as $released
         | $released.d as $date
         | (if $v == $newest then "latest" else $released.c | ascii_downcase end) as $status
-        | ([.assets[].download_count] | add // 0) as $downloads
+        | ([.assets[] | select(.name | endswith(".apk")) | .download_count] | add // 0) as $downloads
         | (if .pending then "**\($v)**<br><sub>\(if any($planned[]; .version == $v and .state == "building") then "building" else "queued" end)</sub>"
            else "[**\($v)**](https://github.com/\($repo)/releases/tag/\($v))<br><sub>\($downloads) downloads</sub>" end) as $title
         | ($v | split(".")[0]) as $m
@@ -137,3 +140,43 @@ TABLE=$tmp/table.md awk '
   /<!-- releases:end -->/ { skip = 0 }
   !skip' "$readme" >"$readme.tmp"
 mv "$readme.tmp" "$readme"
+
+if [[ -n $json ]]; then
+  jq --arg repo "$repo" --argjson icons "$index" --slurpfile dash "$tmp/dash.json" '
+    $dash[0] as $dash
+    | sort_by(.tag_name | split(".") | map(tonumber)) | reverse
+    | (map(select(.prerelease | not) | .tag_name) | first) as $newest
+    | {
+        repository: "https://github.com/\($repo)",
+        versions: map(
+          .tag_name as $v | ($dash[$v] // {}) as $d
+          | {
+              version: $v,
+              milestone: ($v | split(".")[0] | tonumber),
+              channel: (if .prerelease then "Beta" else "Stable" end),
+              latest: ($v == $newest),
+              releasedToAndroid: (if $d.time then $d.time / 1000 | floor | todate else null end),
+              published: .published_at,
+              commit: ($d.commit // null),
+              source: "https://chromium.googlesource.com/chromium/src/+/refs/tags/\($v)",
+              release: .html_url,
+              downloads: ([.assets[] | select(.name | endswith(".apk")) | .download_count] | add // 0),
+              apks: [
+                .assets[]
+                | (.name | capture("^(?<kind>chromium|webview)-.+-(?<arch>x86_64|arm64)\\.apk$")) as $n
+                | {
+                    kind: $n.kind,
+                    package: (if $n.kind == "chromium" then "org.chromium.chrome" else "com.android.webview" end),
+                    arch: $n.arch,
+                    name,
+                    url: .browser_download_url,
+                    icon: ($icons[$v][$n.kind] // null | if . then "https://raw.githubusercontent.com/\($repo)/icons/\(.)" else null end),
+                    size,
+                    sha256: (.digest // "" | ltrimstr("sha256:") | if . == "" then null else . end),
+                    built: .created_at,
+                    downloads: .download_count
+                  }
+              ] | sort_by(.kind, .arch)
+            })
+      }' <<<"$releases" >"$json"
+fi
