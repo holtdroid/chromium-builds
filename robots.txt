@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://holtdroid.github.io/chromium-builds/sitemap.xml
