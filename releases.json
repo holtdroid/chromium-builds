@@ -11,7 +11,7 @@
       "commit": "ab2e5d8ad16ca47ad4361c9517225f1ac884d255",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.33",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.33",
-      "downloads": 14,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -35,7 +35,7 @@
           "size": 410595860,
           "sha256": "5afd3814c51eea97ac49834c455f65f4e73f391f8abd8043454fda94eeea418f",
           "built": "2026-11-25T21:15:12Z",
-          "downloads": 5
+          "downloads": 7
         },
         {
           "kind": "webview",
@@ -59,7 +59,7 @@
           "size": 236658225,
           "sha256": "ede3783cf9643f7164a3142b263336985e9e08229562e317cc2bfbac133bec15",
           "built": "2026-11-25T21:15:12Z",
-          "downloads": 4
+          "downloads": 5
         }
       ]
     },
@@ -73,7 +73,7 @@
       "commit": "ee456dcc432646f3d9941126a2c0730fa223e098",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.18",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.18",
-      "downloads": 45,
+      "downloads": 48,
       "apks": [
         {
           "kind": "chromium",
@@ -97,7 +97,7 @@
           "size": 410595860,
           "sha256": "320a30976bb0ef366afcbb3921ae8f480c77328e520ef5b2f5971769111d54f1",
           "built": "2026-11-19T22:21:30Z",
-          "downloads": 12
+          "downloads": 13
         },
         {
           "kind": "webview",
@@ -121,7 +121,7 @@
           "size": 236658225,
           "sha256": "de6711fc5af48c42754cca35e7ad9886fdef7eaae26b9289ce7e139117e5428c",
           "built": "2026-11-19T22:21:30Z",
-          "downloads": 16
+          "downloads": 18
         }
       ]
     },
@@ -135,7 +135,7 @@
       "commit": "477da85e3d730af58ab676ea7aa02dab256eeb34",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.4",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.4",
-      "downloads": 15,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -159,7 +159,7 @@
           "size": 409853483,
           "sha256": "ac4693904dc204f60d520c18a02e29c9d79c1520b0e2f4081ffe31d6feb4d554",
           "built": "2026-11-13T20:48:57Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "webview",
@@ -183,7 +183,7 @@
           "size": 236592689,
           "sha256": "24d9ea6e6088f41c8e0aebf9cc48e312dec1d5e1217f40ad5f103a103f870c04",
           "built": "2026-11-13T20:48:57Z",
-          "downloads": 3
+          "downloads": 4
         }
       ]
     },
