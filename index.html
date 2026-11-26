@@ -56,7 +56,7 @@
         <div class="term-body">
           <div class="opts">
             <span>--milestone</span><select id="m" aria-label="Milestone"></select>
-            <span>--arch</span><div class="chips" id="arch"><button type="button" class="chip" data-v="x" aria-pressed="true">x86_64</button><button type="button" class="chip" data-v="a" aria-pressed="false">arm64</button></div>
+            <span>--arch</span><div class="chips" id="arch"><button type="button" class="chip" data-v="a" aria-pressed="true">arm64</button><button type="button" class="chip" data-v="x" aria-pressed="false">x86_64</button></div>
           </div>
           <div class="code" id="cmd"><div class="code-bar"><span>SHELL</span><button class="copy" type="button" data-copy="cmd">copy</button></div><pre></pre></div>
           <div class="dlrow">
@@ -226,7 +226,7 @@ const byM = new Map();
 for (const e of DATA) if (!byM.has(e.m) || e.c === "s" && byM.get(e.m).c === "b") byM.set(e.m, e);
 const ms = [...byM.keys()].sort((a, b) => a - b);
 const latest = DATA.find((e) => e.l) || DATA[0];
-const st = { m: latest.m, arch: "x", q: "", ch: "", farch: "x", all: false };
+const st = { m: latest.m, arch: "a", q: "", ch: "", farch: "x", all: false };
 $("maxm").textContent = ms[ms.length - 1];
 
 function renderHero(m = st.m) {
