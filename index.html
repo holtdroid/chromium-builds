@@ -136,19 +136,27 @@
       <div class="block-head">
         <div class="label">CHROMIUM VS CHROME</div>
         <h2 id="chrome-title">Same engine, no Google extras</h2>
-        <p>Chrome is built from Chromium and shares its Blink, V8 and version numbers, so a rendering bug in Chrome 112 shows up in Chromium 112.</p>
+        <p>Chrome is built from Chromium and shares its Blink, V8 and version numbers, so a rendering bug in Chrome 112 shows up in Chromium 112. These builds differ from Google's in packaging, signing and Google's own services, and they are made for checking behaviour, not for benchmarks.</p>
       </div>
       <div class="table-wrap">
         <table class="compare">
-          <thead><tr><th></th><th>chromium-builds</th><th>Google Chrome</th></tr></thead>
+          <thead><tr><th></th><th>chromium-builds</th><th>Google Chrome &amp; System WebView</th></tr></thead>
           <tbody>
             <tr><td>blink, v8, devtools</td><td class="yes">same</td><td class="yes">same</td></tr>
+            <tr><td>version numbers</td><td class="yes">same release tags</td><td class="yes">same release tags</td></tr>
+            <tr><td>h.264, aac, hevc</td><td class="yes">yes</td><td class="yes">yes</td></tr>
             <tr><td>any old version</td><td class="yes">yes, next to the current one</td><td class="no">newest only</td></tr>
             <tr><td>auto-updates</td><td class="yes">never</td><td class="no">Play Store</td></tr>
             <tr><td>field trials</td><td class="yes">none</td><td class="no">differ per device</td></tr>
-            <tr><td>h.264, aac, hevc</td><td class="yes">yes</td><td class="yes">yes</td></tr>
-            <tr><td>sign-in, safe browsing</td><td class="no">no</td><td class="yes">yes</td></tr>
+            <tr><td>android:debuggable</td><td class="yes">yes, run-as and debuggers work</td><td class="no">no</td></tr>
+            <tr><td>browser package</td><td><span class="mono">org.chromium.chrome</span></td><td><span class="mono">com.android.chrome</span></td></tr>
+            <tr><td>webview package</td><td><span class="mono">com.android.webview</span> (AOSP)</td><td><span class="mono">com.google.android.webview</span></td></tr>
+            <tr><td>apk layout</td><td>standalone, 64-bit only</td><td>Trichrome, 32- and 64-bit</td></tr>
+            <tr><td>compiler optimizations</td><td class="no">no PGO, no ThinLTO: larger, a bit slower</td><td class="yes">PGO and ThinLTO</td></tr>
+            <tr><td>google api keys</td><td class="no">none</td><td class="yes">yes</td></tr>
+            <tr><td>sign-in, sync, safe browsing</td><td class="no">no</td><td class="yes">yes</td></tr>
             <tr><td>widevine drm</td><td class="no">no</td><td class="yes">yes</td></tr>
+            <tr><td>signed by</td><td>Chromium's public debug key</td><td>Google</td></tr>
           </tbody>
         </table>
       </div>
