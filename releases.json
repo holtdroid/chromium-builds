@@ -11,7 +11,7 @@
       "commit": "ab2e5d8ad16ca47ad4361c9517225f1ac884d255",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.33",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.33",
-      "downloads": 20,
+      "downloads": 25,
       "apks": [
         {
           "kind": "chromium",
@@ -23,7 +23,7 @@
           "size": 405910164,
           "sha256": "e10620fe2482f0eb15e846319d9779bb6167a72e1748143ee703bc70ef81a142",
           "built": "2026-11-25T22:39:52Z",
-          "downloads": 4
+          "downloads": 6
         },
         {
           "kind": "chromium",
@@ -35,7 +35,7 @@
           "size": 410595860,
           "sha256": "5afd3814c51eea97ac49834c455f65f4e73f391f8abd8043454fda94eeea418f",
           "built": "2026-11-25T21:15:12Z",
-          "downloads": 7
+          "downloads": 8
         },
         {
           "kind": "webview",
@@ -47,7 +47,7 @@
           "size": 229645639,
           "sha256": "821d54ab52a260b84cd26dc4bf5bfeddc7f5e47bc479426ad3d6f41885de3e85",
           "built": "2026-11-25T22:39:52Z",
-          "downloads": 4
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -59,7 +59,7 @@
           "size": 236658225,
           "sha256": "ede3783cf9643f7164a3142b263336985e9e08229562e317cc2bfbac133bec15",
           "built": "2026-11-25T21:15:12Z",
-          "downloads": 5
+          "downloads": 6
         }
       ]
     },
@@ -197,7 +197,7 @@
       "commit": "783b8d428496f3b46be8c2c37f31855541f7426e",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.93",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.93",
-      "downloads": 12,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -209,7 +209,7 @@
           "size": 405834699,
           "sha256": "e340b2a8e00056af8b9b79d3f820b11e7961668dffd90c913786145d20dcae9f",
           "built": "2026-11-25T21:39:12Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "chromium",
