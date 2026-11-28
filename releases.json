@@ -11,7 +11,7 @@
       "commit": "ab2e5d8ad16ca47ad4361c9517225f1ac884d255",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.33",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.33",
-      "downloads": 26,
+      "downloads": 44,
       "apks": [
         {
           "kind": "chromium",
@@ -23,7 +23,7 @@
           "size": 405910164,
           "sha256": "e10620fe2482f0eb15e846319d9779bb6167a72e1748143ee703bc70ef81a142",
           "built": "2026-11-25T22:39:52Z",
-          "downloads": 6
+          "downloads": 14
         },
         {
           "kind": "chromium",
@@ -35,7 +35,7 @@
           "size": 410595860,
           "sha256": "5afd3814c51eea97ac49834c455f65f4e73f391f8abd8043454fda94eeea418f",
           "built": "2026-11-25T21:15:12Z",
-          "downloads": 9
+          "downloads": 12
         },
         {
           "kind": "webview",
@@ -47,7 +47,7 @@
           "size": 229645639,
           "sha256": "821d54ab52a260b84cd26dc4bf5bfeddc7f5e47bc479426ad3d6f41885de3e85",
           "built": "2026-11-25T22:39:52Z",
-          "downloads": 5
+          "downloads": 9
         },
         {
           "kind": "webview",
@@ -59,7 +59,7 @@
           "size": 236658225,
           "sha256": "ede3783cf9643f7164a3142b263336985e9e08229562e317cc2bfbac133bec15",
           "built": "2026-11-25T21:15:12Z",
-          "downloads": 6
+          "downloads": 9
         }
       ]
     },
@@ -73,7 +73,7 @@
       "commit": "ee456dcc432646f3d9941126a2c0730fa223e098",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.18",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.18",
-      "downloads": 48,
+      "downloads": 53,
       "apks": [
         {
           "kind": "chromium",
@@ -97,7 +97,7 @@
           "size": 410595860,
           "sha256": "320a30976bb0ef366afcbb3921ae8f480c77328e520ef5b2f5971769111d54f1",
           "built": "2026-11-19T22:21:30Z",
-          "downloads": 13
+          "downloads": 15
         },
         {
           "kind": "webview",
@@ -121,7 +121,7 @@
           "size": 236658225,
           "sha256": "de6711fc5af48c42754cca35e7ad9886fdef7eaae26b9289ce7e139117e5428c",
           "built": "2026-11-19T22:21:30Z",
-          "downloads": 18
+          "downloads": 21
         }
       ]
     },
@@ -135,7 +135,7 @@
       "commit": "477da85e3d730af58ab676ea7aa02dab256eeb34",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.4",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.4",
-      "downloads": 17,
+      "downloads": 19,
       "apks": [
         {
           "kind": "chromium",
@@ -183,7 +183,7 @@
           "size": 236592689,
           "sha256": "24d9ea6e6088f41c8e0aebf9cc48e312dec1d5e1217f40ad5f103a103f870c04",
           "built": "2026-11-13T20:48:57Z",
-          "downloads": 4
+          "downloads": 6
         }
       ]
     },
@@ -197,7 +197,7 @@
       "commit": "783b8d428496f3b46be8c2c37f31855541f7426e",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.93",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.93",
-      "downloads": 13,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -221,7 +221,7 @@
           "size": 407243595,
           "sha256": "24177db231e54658bd28284ec858d607fe9942b8b82e090263185af8a66e9950",
           "built": "2026-11-25T21:29:48Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -245,7 +245,7 @@
           "size": 234430273,
           "sha256": "4e919fecf36464543d00a5ba7d9106796928ad28da5a90a53c2a205c7ba52460",
           "built": "2026-11-25T21:29:48Z",
-          "downloads": 4
+          "downloads": 6
         }
       ]
     },
@@ -259,7 +259,7 @@
       "commit": "aa8057651dc34373e52d0a0cefd7904a11b3e130",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.92",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.92",
-      "downloads": 11,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -283,7 +283,7 @@
           "size": 407243595,
           "sha256": "de6a59d9bd390f97077b458a228e96cb9d6bdf664e5a03c857cc658bf7ac48d4",
           "built": "2026-11-24T21:53:10Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -307,7 +307,7 @@
           "size": 234430273,
           "sha256": "c5026e5079b3dda63ef6f0943b2e4cab11aa054d070b192191a9872aa3557711",
           "built": "2026-11-24T21:53:10Z",
-          "downloads": 3
+          "downloads": 5
         }
       ]
     },
@@ -321,7 +321,7 @@
       "commit": "bc66a537281f6ac92d4e5c46fb087b6179f7ccba",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.43",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.43",
-      "downloads": 19,
+      "downloads": 23,
       "apks": [
         {
           "kind": "chromium",
@@ -345,7 +345,7 @@
           "size": 407243595,
           "sha256": "16b49b9e34cb8a22e275e0efce5e76cd653bbe443a5344b16959084649be7ef9",
           "built": "2026-11-20T04:13:07Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -369,7 +369,7 @@
           "size": 234364737,
           "sha256": "b4f3172c8ef8bc0a17bd0dfab15f82efc06932ab35d7038fd83eaed87cd2b337",
           "built": "2026-11-20T04:13:08Z",
-          "downloads": 3
+          "downloads": 5
         }
       ]
     },
@@ -383,7 +383,7 @@
       "commit": "52bdd21723d5db0c9ab11716d38feac74828cf84",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.42",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.42",
-      "downloads": 13,
+      "downloads": 19,
       "apks": [
         {
           "kind": "chromium",
@@ -407,7 +407,7 @@
           "size": 407243595,
           "sha256": "6abfbf36ed5a25072f46363599304a0c0db08290d3bcf5d658ca8bc5df9a96f0",
           "built": "2026-11-18T21:20:32Z",
-          "downloads": 4
+          "downloads": 7
         },
         {
           "kind": "webview",
@@ -431,7 +431,7 @@
           "size": 234364737,
           "sha256": "0f137140d09b7250bf2db6181e0c3b6920f5fc39978b75bd8baa2bc6bfeff2e2",
           "built": "2026-11-18T21:20:33Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -445,7 +445,7 @@
       "commit": "14d6f648e8cd7ad750a4044200ce94d3321be260",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.36",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.36",
-      "downloads": 45,
+      "downloads": 51,
       "apks": [
         {
           "kind": "chromium",
@@ -469,7 +469,7 @@
           "size": 407243595,
           "sha256": "8e93ab6cc0b73dd055078d324c419a49eefdaae604250e3baf51deca244f3ee5",
           "built": "2026-11-13T22:24:40Z",
-          "downloads": 5
+          "downloads": 8
         },
         {
           "kind": "webview",
@@ -493,7 +493,7 @@
           "size": 234364737,
           "sha256": "875af9f446e0abacb3fb252cb0071ade49c1fe7cf37a218e20ad515dc2ed91bf",
           "built": "2026-11-13T22:24:40Z",
-          "downloads": 23
+          "downloads": 26
         }
       ]
     },
@@ -507,7 +507,7 @@
       "commit": "58b666ad521f748090829ba302d391bfd3c784cf",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.22",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.22",
-      "downloads": 16,
+      "downloads": 21,
       "apks": [
         {
           "kind": "chromium",
@@ -531,7 +531,7 @@
           "size": 407148899,
           "sha256": "58b2d5b16000756f9552b64b95816033c8e8e2c57af1f3e32172769f46dcc2bb",
           "built": "2026-11-05T23:19:17Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -555,7 +555,7 @@
           "size": 234364737,
           "sha256": "dc771380f998940edc9c5b8ec3581ccbbfe409a894614dba0162faf554ea45bc",
           "built": "2026-11-05T23:19:17Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -569,7 +569,7 @@
       "commit": "681cd621e82e606d7536eae8ea2576afb3c7d65c",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/158.0.8127.2",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/158.0.8127.2",
-      "downloads": 15,
+      "downloads": 20,
       "apks": [
         {
           "kind": "chromium",
@@ -593,7 +593,7 @@
           "size": 406744271,
           "sha256": "d7e8f6ed963b63c435e36a6c0799caf0f0a22be42fa27722e7bfa7ae221e7c65",
           "built": "2026-11-04T01:43:49Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -617,7 +617,7 @@
           "size": 234364737,
           "sha256": "dd126c78d4fbca56034914258bc3d0f56db946ab2a35651d0caae8b1dd0d8465",
           "built": "2026-11-04T01:43:49Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -631,7 +631,7 @@
       "commit": "a733b5afbb3ba618844ff8876b89ad1a774b2f18",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/157.0.8103.38",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/157.0.8103.38",
-      "downloads": 9,
+      "downloads": 11,
       "apks": [
         {
           "kind": "chromium",
@@ -655,7 +655,7 @@
           "size": 404208744,
           "sha256": "627b45701989915a174514beb967f7871da542a4e2bbe397a8d6d1172d9dcc54",
           "built": "2026-11-05T14:27:55Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "webview",
@@ -679,7 +679,7 @@
           "size": 233175606,
           "sha256": "90a798f7e73dca6d12e27f62b9ad1740ca46ac172750f43c70a0b413b227b457",
           "built": "2026-11-05T14:27:55Z",
-          "downloads": 2
+          "downloads": 3
         }
       ]
     },
@@ -693,7 +693,7 @@
       "commit": "638dd0ef2fd334b657efb909d06d0164ea4d9443",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/157.0.8103.30",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/157.0.8103.30",
-      "downloads": 15,
+      "downloads": 20,
       "apks": [
         {
           "kind": "chromium",
@@ -717,7 +717,7 @@
           "size": 404208815,
           "sha256": "4cb24dfe23881f88c8302bf1d749d72002df8c54d6018a1f68e5fec5b6cad8aa",
           "built": "2026-10-31T06:49:41Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -741,7 +741,7 @@
           "size": 233175703,
           "sha256": "cffa685caa9dff8d9f03d6bbcf8b63260b43b816eb6f700dd5bac29189c9e695",
           "built": "2026-10-31T06:49:41Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -755,7 +755,7 @@
       "commit": "a21ce95c24ce3964416f09ae1862f53f319eb4d0",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/156.0.8078.79",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/156.0.8078.79",
-      "downloads": 9,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -779,7 +779,7 @@
           "size": 401706079,
           "sha256": "fe48a496cbbba5bca7870eee4f44fba7983e6953f91790dab8026b72d5fe3cb7",
           "built": "2026-11-02T16:48:21Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -803,7 +803,7 @@
           "size": 232305411,
           "sha256": "1a0020684904a499f1523c827e8ca8580817fb8ff46054545beecc3f9f4e893b",
           "built": "2026-11-02T16:48:21Z",
-          "downloads": 3
+          "downloads": 5
         }
       ]
     },
@@ -817,7 +817,7 @@
       "commit": "ea4faf0240bb20563429d99ccefa65336951e8dd",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/155.0.8059.88",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/155.0.8059.88",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -841,7 +841,7 @@
           "size": 399828660,
           "sha256": "0500085ce2d59a294e1cf8b29c54de0a9fb29db70db085900f1687c8aec3edbb",
           "built": "2026-11-02T13:22:39Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -865,7 +865,7 @@
           "size": 231336039,
           "sha256": "63946e6366361c4eb6cb8545161d735800334c3d892db904f2974f6babe213fd",
           "built": "2026-11-02T13:22:39Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -879,7 +879,7 @@
       "commit": "4ed32028bcb2d00bc07a8880eb85aca80c9c5ec6",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/154.0.8037.127",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/154.0.8037.127",
-      "downloads": 9,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -903,7 +903,7 @@
           "size": 396923875,
           "sha256": "3d3e29941f1288f37cccdcffd28998f3e8cd86b0d90d4edd5705556f50c42c5b",
           "built": "2026-11-02T23:46:44Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -927,7 +927,7 @@
           "size": 228456572,
           "sha256": "af21d0e6cab6b9b233727f40a8955f3805acff8d54f06fae009b0c537a43e065",
           "built": "2026-11-02T23:46:44Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -941,7 +941,7 @@
       "commit": "792bf6722e73a45aa9e47c163b9901bdc17f3230",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/153.0.8010.53",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/153.0.8010.53",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -965,7 +965,7 @@
           "size": 393883167,
           "sha256": "30a779897d7bddecb802ccc37cf531c2fba2ac92306ce5a2fe9ebea9f0ea3efd",
           "built": "2026-11-03T07:28:28Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -989,7 +989,7 @@
           "size": 227387108,
           "sha256": "d601a6e07b5683f6f37bd6910f697acde3a2b211f741e3b4fb0b5a3d6209aca6",
           "built": "2026-11-03T07:28:28Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1003,7 +1003,7 @@
       "commit": "4334922f44c77b1208072c4deac29db3af39bbea",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/152.0.7977.84",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/152.0.7977.84",
-      "downloads": 8,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -1027,7 +1027,7 @@
           "size": 390104944,
           "sha256": "d60a333e2c60c2e5c9736cb505b95123e31a9393c14e5fef8aabe66bc188a3be",
           "built": "2026-11-02T07:09:16Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -1051,7 +1051,7 @@
           "size": 222109008,
           "sha256": "556630bf9c4c803f62bca00451f241cec060ab5fdbab3739317b4f932b7ccc1b",
           "built": "2026-11-02T07:09:16Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -1065,7 +1065,7 @@
       "commit": "02fcc75bd274240484d344e0ef73fd82953276bc",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/151.0.7922.175",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/151.0.7922.175",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -1089,7 +1089,7 @@
           "size": 390056658,
           "sha256": "212d35f1f1d4d31ae6d07ba108d785d1d9959337bdd4bb1aa9bcafcd5a54c264",
           "built": "2026-11-02T02:05:49Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1113,7 +1113,7 @@
           "size": 224270949,
           "sha256": "5c74683d43f9a8df43f6e18347b27b0fa0fe01e73e1d67dc858e24b3f1250340",
           "built": "2026-11-02T02:05:49Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1127,7 +1127,7 @@
       "commit": "99dc70575a5975cd1bba5cb8cc0b4ee48f86a114",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/150.0.7871.189",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/150.0.7871.189",
-      "downloads": 9,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -1151,7 +1151,7 @@
           "size": 385727295,
           "sha256": "31e454736ca110d5ce958772dfcf6c63d6a5401b5193b0b2909c1af11abfb5e0",
           "built": "2026-11-02T00:03:23Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1175,7 +1175,7 @@
           "size": 221919881,
           "sha256": "856a257226fd3ab972db0ff8778d801ae229f45ec63e6ee2bf7f1d2c07a98fc2",
           "built": "2026-11-02T00:03:23Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1189,7 +1189,7 @@
       "commit": "6a7b3dbec3b2ca25877c2553b5473b2f277ef644",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/149.0.7827.201",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/149.0.7827.201",
-      "downloads": 9,
+      "downloads": 11,
       "apks": [
         {
           "kind": "chromium",
@@ -1237,7 +1237,7 @@
           "size": 232909697,
           "sha256": "e12055789eeed9362568fb0a9f6a5d4e7acfdc417bd8e62a031e8b0467cce542",
           "built": "2026-11-02T06:15:00Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1251,7 +1251,7 @@
       "commit": "c41b3e47e69c929c79773167979e00d206675cb0",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/148.0.7778.217",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/148.0.7778.217",
-      "downloads": 9,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -1275,7 +1275,7 @@
           "size": 380004905,
           "sha256": "3d18e3880f5d6543c49d0c649f99d624b2d637fcb4b270ca8081c3529a457a40",
           "built": "2026-11-01T17:42:06Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1299,7 +1299,7 @@
           "size": 217611137,
           "sha256": "d8713f61a9524a2ca741cc1f890881bb61e5f5789f5a6990ee39a9a1f6edf8fa",
           "built": "2026-11-01T17:42:06Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -1313,7 +1313,7 @@
       "commit": "022a5605792996d967e05acda7091c2bd9b915db",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/147.0.7727.138",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/147.0.7727.138",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -1337,7 +1337,7 @@
           "size": 360754965,
           "sha256": "8c7788b375af06f0436658dd50c5df418e2ec79020e54564dae4bcf48f65f062",
           "built": "2026-11-01T15:38:04Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1361,7 +1361,7 @@
           "size": 213760897,
           "sha256": "07752241ce2c88a05eecc387da7b03d21f53e445db6059bde8570bb508483c72",
           "built": "2026-11-01T15:38:04Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1375,7 +1375,7 @@
       "commit": "19ad7ae2ac645174d8fbf01dfde5f19a6c54f641",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/146.0.7680.178",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/146.0.7680.178",
-      "downloads": 9,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -1399,7 +1399,7 @@
           "size": 352110983,
           "sha256": "929484ebe8c171f3d35e4253c4cbe45fb3a8eb6d70bf07c462f48576c089f72f",
           "built": "2026-11-01T11:57:21Z",
-          "downloads": 3
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1423,7 +1423,7 @@
           "size": 212945347,
           "sha256": "a881078fc7d9b8d29532844b02fcea246d4c1ce9a37bd39d3cfb568823a531b9",
           "built": "2026-11-01T11:57:21Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -1437,7 +1437,7 @@
       "commit": "1ba6b4b4e4cb978378390eaf8129d1c4e7a69cf8",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/145.0.7632.161",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/145.0.7632.161",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -1461,7 +1461,7 @@
           "size": 345936951,
           "sha256": "ce23e2a16ca32d7515f1d98e38da9038f465ad3ece8043481728bbc80b6a74c7",
           "built": "2026-11-01T10:57:48Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1485,7 +1485,7 @@
           "size": 210667971,
           "sha256": "85a50c130f4697bfa39b8959e0bd021363389b110bb410c3dfa32e6f5fe7045a",
           "built": "2026-11-01T10:57:48Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1499,7 +1499,7 @@
       "commit": "7da823b1d594d1b49797911900e003ec96a8c0e7",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/144.0.7559.133",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/144.0.7559.133",
-      "downloads": 8,
+      "downloads": 11,
       "apks": [
         {
           "kind": "chromium",
@@ -1523,7 +1523,7 @@
           "size": 342555732,
           "sha256": "03cf82c7b189dee7e7b303a7700928028ec6657bf3ea35052a38afe22913d48c",
           "built": "2026-10-31T23:36:49Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1547,7 +1547,7 @@
           "size": 207887157,
           "sha256": "5a67372fc2e82d18c0c29171d8e19ea1eff8392644e8656caf8e34d9a6a11585",
           "built": "2026-10-31T23:36:49Z",
-          "downloads": 2
+          "downloads": 3
         }
       ]
     },
@@ -1561,7 +1561,7 @@
       "commit": "f73cd9afd47852a6077a0251008209da950270f4",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/143.0.7499.194",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/143.0.7499.194",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -1585,7 +1585,7 @@
           "size": 342523521,
           "sha256": "91e44dea40d9f090be647726dc75154f2d7200efd957dcddf5e88fb379f347bc",
           "built": "2026-10-31T23:43:15Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -1609,7 +1609,7 @@
           "size": 207575861,
           "sha256": "e365da5d9e487a3b779c4ad16a32a777981a477814cff62c50b1cd55636061c2",
           "built": "2026-10-31T23:43:15Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1623,7 +1623,7 @@
       "commit": "b2b7484a068aee5c2fb1ff7c2714b884204db56b",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/142.0.7444.173",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/142.0.7444.173",
-      "downloads": 8,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -1647,7 +1647,7 @@
           "size": 337929960,
           "sha256": "2a7c8517c674740bd527e7a4b2c735ae3fc3a51db622c730cac523452a3a3965",
           "built": "2026-11-01T00:12:51Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -1671,7 +1671,7 @@
           "size": 205228773,
           "sha256": "1484070a56c3dcf255a0b9c7226411785c44a981df13bda645842eabaa01cfb7",
           "built": "2026-11-01T00:12:51Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -1685,7 +1685,7 @@
       "commit": "fcf346308f838bc89a3e3270e07f2fca679303ad",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/141.0.7390.123",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/141.0.7390.123",
-      "downloads": 8,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -1709,7 +1709,7 @@
           "size": 334471622,
           "sha256": "0e746b73842164291fe4fdeddc9766d54413b491933bb786d2a552cecb900c6f",
           "built": "2026-11-01T03:26:18Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -1733,7 +1733,7 @@
           "size": 203977891,
           "sha256": "5a50a246c39d2bd65917660d91b72007b2f3fbf6c73b5dd3bbc4050963e66b3b",
           "built": "2026-11-01T03:26:18Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -1747,7 +1747,7 @@
       "commit": "c759967f1b8ca5857065acaa4f7b5cdb3a12df7b",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/140.0.7339.208",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/140.0.7339.208",
-      "downloads": 11,
+      "downloads": 16,
       "apks": [
         {
           "kind": "chromium",
@@ -1771,7 +1771,7 @@
           "size": 328071753,
           "sha256": "584aa0535d175cad8da3c73242fd7693846debf5e036ec8ad1bdc19c743b00b3",
           "built": "2026-10-30T09:28:49Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -1795,7 +1795,7 @@
           "size": 202808287,
           "sha256": "dbe47e3ef5d847f965f670418b9604f1475d9168d25718dfc54b99e3ada5c7e8",
           "built": "2026-10-30T09:28:49Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -1809,7 +1809,7 @@
       "commit": "be5b87e80353279db14b12488d0cab09803dec3e",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/139.0.7258.160",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/139.0.7258.160",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -1833,7 +1833,7 @@
           "size": 322463644,
           "sha256": "c525bc7b86e8e0d47f8742b4f2a20d9bb27c2ace95a049d1dbcde746dbc1f1af",
           "built": "2026-10-31T19:53:23Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -1857,7 +1857,7 @@
           "size": 197633973,
           "sha256": "82af45c9c7927abe61ebcb91bf43fb86f4c101b279cbf926d01f7805f71f4b7e",
           "built": "2026-10-31T19:53:23Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1871,7 +1871,7 @@
       "commit": "652997ca80b53948d218ce7c48bf60fd0ad27be2",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/138.0.7204.180",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/138.0.7204.180",
-      "downloads": 10,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -1895,7 +1895,7 @@
           "size": 314544994,
           "sha256": "12c5c75ddf97bd62cbaabf30e4c00e9f3346a6009e4697097bbb605d9886c922",
           "built": "2026-10-31T17:25:32Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -1919,7 +1919,7 @@
           "size": 205756716,
           "sha256": "e1ff4e5fac7d66e578160a74f9441c27c886f13d64c51072033a64f7359ec64d",
           "built": "2026-10-31T17:25:32Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1933,7 +1933,7 @@
       "commit": "992bd9f8e57bf68265554a982bca41c433c0479d",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/137.0.7151.117",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/137.0.7151.117",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -1957,7 +1957,7 @@
           "size": 306741216,
           "sha256": "a67724acdf626eb57ddf6b38e6dca1653eacc1cc7567afcb37ec8f4625d81fef",
           "built": "2026-10-31T13:07:56Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -1981,7 +1981,7 @@
           "size": 199343799,
           "sha256": "ee4a947ba978683aa6f8584f7169664656b0f490ae3ea7eadbf429ef801ca496",
           "built": "2026-10-31T13:07:56Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -1995,7 +1995,7 @@
       "commit": "a052acf0bd9d845752ce56b41366033e2ca2a09f",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/136.0.7103.127",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/136.0.7103.127",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2019,7 +2019,7 @@
           "size": 302920061,
           "sha256": "96b9053a45dc5849ec28f47f1d6e72b6cfe311730e26e62f381cd05ac1d4a397",
           "built": "2026-10-31T14:51:58Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2043,7 +2043,7 @@
           "size": 197178955,
           "sha256": "3833fe4a3725ee618e9086ad73a40e3202eb11c9726ce21ed072d41b5fe07b8c",
           "built": "2026-10-31T14:51:58Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2057,7 +2057,7 @@
       "commit": "ddac8dc20f009802d7c1c20af2ca326ea82ea5e3",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/135.0.7049.113",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/135.0.7049.113",
-      "downloads": 9,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -2081,7 +2081,7 @@
           "size": 298861095,
           "sha256": "78f2074c1dcb77923a3576c00e8cfc9e583b4aa5acef630007e881ab363202e5",
           "built": "2026-10-31T01:13:03Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -2105,7 +2105,7 @@
           "size": 195583419,
           "sha256": "b39fe2a07ca8b34355f7709dfabd973033a0f53179318593d3dfa958b250d5a3",
           "built": "2026-10-31T01:13:03Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2119,7 +2119,7 @@
       "commit": "2835901d3fa46902b0570e72832b5be9781589ec",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/134.0.6998.136",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/134.0.6998.136",
-      "downloads": 8,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -2143,7 +2143,7 @@
           "size": 296459625,
           "sha256": "4a624098280a4488b262514a9f344113df0c62d7dbf2cbdcf45eb9d2e2771c0d",
           "built": "2026-10-31T03:03:14Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -2167,7 +2167,7 @@
           "size": 194487871,
           "sha256": "9c2cfcb00df4a1db0a412727a73c88740994f491c17de1e104132e89497d9241",
           "built": "2026-10-31T03:03:14Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2181,7 +2181,7 @@
       "commit": "c34e727e67bceb407e2fb655fb3cb55eef0e7edb",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/133.0.6943.138",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/133.0.6943.138",
-      "downloads": 10,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -2205,7 +2205,7 @@
           "size": 292635705,
           "sha256": "9f4e09b422c07c79838dc7cf96ffadb5db0e059c17dd4ac0e8aecfa990b8408c",
           "built": "2026-10-30T23:56:04Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2229,7 +2229,7 @@
           "size": 193227985,
           "sha256": "891accb09d43a66719567f16e52f97be71520e4d92cb3df16a4a9c3ef4476e0e",
           "built": "2026-10-30T23:56:04Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -2243,7 +2243,7 @@
       "commit": "ae52d8c4c0bfd24c42595d7d168e1a267e99183b",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/132.0.6834.165",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/132.0.6834.165",
-      "downloads": 9,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2267,7 +2267,7 @@
           "size": 292073111,
           "sha256": "3b169d236dfe86b579618cf3eaa6886e7c8274697be6446db2e29763af5b814c",
           "built": "2026-10-30T22:20:51Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "webview",
@@ -2291,7 +2291,7 @@
           "size": 193884732,
           "sha256": "21da338b0ceb7b62eda2495de9954f779625a65bc13cfefb95e7b4b3d8adb299",
           "built": "2026-10-30T22:20:51Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2305,7 +2305,7 @@
       "commit": "e5f87164633afb3ab0e1d2fb08831f249cc6f03f",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/131.0.6778.261",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/131.0.6778.261",
-      "downloads": 9,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -2329,7 +2329,7 @@
           "size": 290775607,
           "sha256": "705060ab9c768e45c9c192e1364b0e819131f66d3e617b17ad0e44e2e53cd7b1",
           "built": "2026-10-31T06:22:09Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -2353,7 +2353,7 @@
           "size": 193208103,
           "sha256": "556fc977799866a988ebf2852eb1f0d4795416039ebe029c319bcbb4763fa6de",
           "built": "2026-10-31T06:22:09Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2367,7 +2367,7 @@
       "commit": "055dd081228c37cbdf8ae487e9b2772bd42b456b",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/130.0.6723.103",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/130.0.6723.103",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2391,7 +2391,7 @@
           "size": 289060321,
           "sha256": "0ee382289c980d2ae29fa189e02570d23a8a7c209f3e9ffeab85d07ddc29fedf",
           "built": "2026-10-31T08:18:46Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2415,7 +2415,7 @@
           "size": 192784137,
           "sha256": "a10af774a2df1284597f5b5ee0b53119e17ace23c68d9faf1aea0ec3e3017a52",
           "built": "2026-10-31T08:18:46Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2429,7 +2429,7 @@
       "commit": "aa3a56231a96c1bba1d4342f4e780366d3a0cf52",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/129.0.6668.102",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/129.0.6668.102",
-      "downloads": 12,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -2453,7 +2453,7 @@
           "size": 287255153,
           "sha256": "ee8bc0938eae83d1856dfa925cf04a4ec8e757edef5068813a1a965c852c193f",
           "built": "2026-11-03T10:54:04Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -2477,7 +2477,7 @@
           "size": 192175568,
           "sha256": "687a93d33321c32ca090daec9e427ee3283637f37644cd0636e0431801583046",
           "built": "2026-11-03T10:54:04Z",
-          "downloads": 3
+          "downloads": 5
         }
       ]
     },
@@ -2491,7 +2491,7 @@
       "commit": "3ba846e404ae77bcc474518fe917dd0642415caa",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/128.0.6613.148",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/128.0.6613.148",
-      "downloads": 9,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2515,7 +2515,7 @@
           "size": 283961346,
           "sha256": "0073ecd89660f7e377d2a39b608d517db174b9a0d68085ad121b17ad0812d82b",
           "built": "2026-11-03T09:05:13Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2539,7 +2539,7 @@
           "size": 189262470,
           "sha256": "cc1aa64d5ba520e8cb6681f9d868210fdb93246fb9e50d92c440dd06b7ba7c4a",
           "built": "2026-11-03T09:05:13Z",
-          "downloads": 3
+          "downloads": 5
         }
       ]
     },
@@ -2553,7 +2553,7 @@
       "commit": "203565aed74f6f29268d0647bbb693ca4fcb6f80",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/127.0.6533.106",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/127.0.6533.106",
-      "downloads": 11,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2577,7 +2577,7 @@
           "size": 252392107,
           "sha256": "2c3c15ec11598ac5a6680065bd39158d200bfb876848c994039c68eee6e6e37e",
           "built": "2026-11-03T11:24:33Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -2615,7 +2615,7 @@
       "commit": "1e5ae24056ae95ebccdf3d2a8135d8475b4b849e",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/126.0.6478.188",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/126.0.6478.188",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2639,7 +2639,7 @@
           "size": 248394866,
           "sha256": "c24e5f0c561b56c08999d2df12871c9e752865a0fc1c65bf261d2b25d9e0ef51",
           "built": "2026-11-03T07:40:36Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2663,7 +2663,7 @@
           "size": 164704779,
           "sha256": "3ae31ef20c6c5ca3fbc247c18d2830fde7d6fc273d32758892cbd2d6bfea3b67",
           "built": "2026-11-03T07:40:36Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2677,7 +2677,7 @@
       "commit": "1ab2b55273b0890cfdd90b4be5cd99304338b420",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/125.0.6422.186",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/125.0.6422.186",
-      "downloads": 9,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -2701,7 +2701,7 @@
           "size": 246146039,
           "sha256": "7f3bceeee5b2cdafde5b1424e6b345bcd24bb4cd2421ac7703216fd6c8e99a13",
           "built": "2026-11-05T06:29:53Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -2725,7 +2725,7 @@
           "size": 163663608,
           "sha256": "7789ce936740b114fca722cadd398ceea7c63c6196936f6141d2b18484b84ac4",
           "built": "2026-11-05T06:29:53Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -2739,7 +2739,7 @@
       "commit": "b563e6d93c12166de85dc704a8a72b4d50656dc5",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/124.0.6367.179",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/124.0.6367.179",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2763,7 +2763,7 @@
           "size": 244596213,
           "sha256": "73091eb780ec5d564e82fecef5ad8a6877e0a411faf000ca8f6a47db49dd326c",
           "built": "2026-11-05T13:01:47Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2787,7 +2787,7 @@
           "size": 162954989,
           "sha256": "b04838527cecf9207dc236afd151f7a80065246eb7d169a66fd818220bed0715",
           "built": "2026-11-05T13:01:47Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2801,7 +2801,7 @@
       "commit": "232bfc2f1a7453e9db5435690c43a1a1ab18c1c7",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/123.0.6312.121",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/123.0.6312.121",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -2825,7 +2825,7 @@
           "size": 242374032,
           "sha256": "29b5109be39c292d6a75041ff0a615d2c1d4a3557c385e3f13cb1ab9e06b55e6",
           "built": "2026-11-05T15:38:02Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2849,7 +2849,7 @@
           "size": 160614858,
           "sha256": "b363387f8cf0dbdf270b5bf2d4b58ba025f8d9205b7a66dfa02fa1f2903e6c0a",
           "built": "2026-11-05T15:38:02Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -2863,7 +2863,7 @@
       "commit": "306cfe601c2eb29d54a473203561d8d34ecaac0d",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/122.0.6261.120",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/122.0.6261.120",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2887,7 +2887,7 @@
           "size": 240446079,
           "sha256": "b0a69e34961f39f54e1c09fc27f79c9eac9f92df0a68652f1edb4f6f5c8cb484",
           "built": "2026-11-04T13:23:24Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2911,7 +2911,7 @@
           "size": 159538723,
           "sha256": "fb7332e4efa033241563da5d35187b11843896b781ecabf6addbba525c8a2860",
           "built": "2026-11-04T13:23:24Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2925,7 +2925,7 @@
       "commit": "a6b02cd3eb17c3f4eebcb0ac3479ba6b0cc3b44a",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/121.0.6167.180",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/121.0.6167.180",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -2949,7 +2949,7 @@
           "size": 238706412,
           "sha256": "fd089c7f9013bbbf8cd04fa3dd2d57d26cf850ddde9d8bf6f5f665da9b1946a4",
           "built": "2026-11-05T13:16:24Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -2973,7 +2973,7 @@
           "size": 158322556,
           "sha256": "043081711d6e5777c4f8c82c4c8810c249cdffab9195d8a8f7136c83875b0ac6",
           "built": "2026-11-05T13:16:24Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -2987,7 +2987,7 @@
       "commit": "9a042bddafd2d65cfe3326f1af46b766ad85d79e",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/120.0.6099.231",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/120.0.6099.231",
-      "downloads": 9,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -3011,7 +3011,7 @@
           "size": 235801768,
           "sha256": "b74d17021b748ebd4dbead1cb9b04d74a76052b7613e47c21e1e89387fa64295",
           "built": "2026-11-04T00:05:22Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -3035,7 +3035,7 @@
           "size": 157088375,
           "sha256": "c383756574c11e775f15d3b2a02b1ad576cc9fd15c74a7471f6853648cdb331a",
           "built": "2026-11-04T00:05:22Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -3049,7 +3049,7 @@
       "commit": "e8f60fd53d98c1b1f67397209066e1453f6957ab",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/119.0.6045.194",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/119.0.6045.194",
-      "downloads": 24,
+      "downloads": 27,
       "apks": [
         {
           "kind": "chromium",
@@ -3073,7 +3073,7 @@
           "size": 232147857,
           "sha256": "d005c0e0173b659acc6a80ea8584c90418e67dd97505a863f83bac620ed85ff0",
           "built": "2026-11-04T00:27:04Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "webview",
@@ -3097,7 +3097,7 @@
           "size": 154528740,
           "sha256": "cbc88e45f716578738b3651090f1ee05abeb45a90cd953182e7b65b397a32838",
           "built": "2026-11-04T00:27:04Z",
-          "downloads": 13
+          "downloads": 15
         }
       ]
     },
@@ -3111,7 +3111,7 @@
       "commit": "49bf2fe7e5bdfcb9bb648043eaf616f9634ff751",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/118.0.5993.112",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/118.0.5993.112",
-      "downloads": 15,
+      "downloads": 19,
       "apks": [
         {
           "kind": "chromium",
@@ -3135,7 +3135,7 @@
           "size": 230921964,
           "sha256": "8cbe7efd2e08af2e0bbc980cdb21f85eb8b64d30eefbf6f31edfea9c92e15ff5",
           "built": "2026-11-10T09:06:18Z",
-          "downloads": 4
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -3159,7 +3159,7 @@
           "size": 154224069,
           "sha256": "79b97e7c30d551d262424887bbeeaec5e036be44fac3713ea337bc2e0d0985fd",
           "built": "2026-11-10T09:06:18Z",
-          "downloads": 4
+          "downloads": 6
         }
       ]
     },
@@ -3173,7 +3173,7 @@
       "commit": "436ab4e1639b5f3b7ff5d1ee05e31565456842eb",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/117.0.5938.156",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/117.0.5938.156",
-      "downloads": 12,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -3197,7 +3197,7 @@
           "size": 227760544,
           "sha256": "1183caa3cbf7427e987f1c743e9f6295d0198efbff68ec2a1e6774849b99f4c6",
           "built": "2026-11-10T18:07:26Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -3221,7 +3221,7 @@
           "size": 165991540,
           "sha256": "7ad9626f25957457d7086d6219f807ac7dbe5d9fef0d9cdc826076b725c651c9",
           "built": "2026-11-10T18:07:26Z",
-          "downloads": 3
+          "downloads": 5
         }
       ]
     },
@@ -3235,7 +3235,7 @@
       "commit": "2bb5834cb9a9c77d29e7d923f882c3a18eecb550",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/116.0.5845.173",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/116.0.5845.173",
-      "downloads": 18,
+      "downloads": 23,
       "apks": [
         {
           "kind": "chromium",
@@ -3259,7 +3259,7 @@
           "size": 222776483,
           "sha256": "da3cc72a3597f58fc7aace76321495d905779223915a228e529d00841a93b388",
           "built": "2026-11-10T04:35:39Z",
-          "downloads": 4
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -3283,7 +3283,7 @@
           "size": 162916068,
           "sha256": "637039e5d63ddb8a8b561b8ff55512867cb5d018a482ee7e2b869ec822c85d7b",
           "built": "2026-11-10T04:35:39Z",
-          "downloads": 10
+          "downloads": 13
         }
       ]
     },
@@ -3297,7 +3297,7 @@
       "commit": "a7ee1f1f66eef5bb4d6480f460153312e8030d89",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/115.0.5790.168",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/115.0.5790.168",
-      "downloads": 10,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -3321,7 +3321,7 @@
           "size": 219461048,
           "sha256": "f81d3e10c703e968bc0c023127fe8b483dc8cf9f077b3e42f2a8640f1fcb84bc",
           "built": "2026-11-09T23:18:47Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -3345,7 +3345,7 @@
           "size": 161549408,
           "sha256": "99f10010421d2f96ba20fcb856d327038ba9e27d0b79af55673c9b6c24c3885a",
           "built": "2026-11-09T23:18:47Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -3359,7 +3359,7 @@
       "commit": "65a671ed0d9b60a333ee36c85d6a95552cc4c4a2",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/114.0.5735.197",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/114.0.5735.197",
-      "downloads": 11,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -3383,7 +3383,7 @@
           "size": 217153836,
           "sha256": "acfd342acd60314144fc4f961e0133cc48cfe5f2777fc519231f10e213bba8a6",
           "built": "2026-11-09T20:11:43Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -3407,7 +3407,7 @@
           "size": 159882498,
           "sha256": "bc4df95d16ea40f52ef81d764bb9b330f6c3915f8b53bdc55130838774ccc99b",
           "built": "2026-11-09T20:11:43Z",
-          "downloads": 3
+          "downloads": 4
         }
       ]
     },
@@ -3421,7 +3421,7 @@
       "commit": "5aa076d9d4b19c5337d07a05a938455ec57417c4",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/113.0.5672.163",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/113.0.5672.163",
-      "downloads": 10,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -3445,7 +3445,7 @@
           "size": 217348655,
           "sha256": "ef6eec5fe66256efa337bb42fcb12d423fecdd947914f10c20b95f40641a7c14",
           "built": "2026-11-09T15:13:05Z",
-          "downloads": 3
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -3469,7 +3469,7 @@
           "size": 160700000,
           "sha256": "637e083c07e3bc11e664a15d006129f71ea2eb44233f8bfb2934dd9265db5325",
           "built": "2026-11-09T15:13:05Z",
-          "downloads": 3
+          "downloads": 4
         }
       ]
     },
@@ -3483,7 +3483,7 @@
       "commit": "45c90676d2e21d21d9a0eebe5bc64d8a2afed202",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/112.0.5615.136",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/112.0.5615.136",
-      "downloads": 10,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -3507,7 +3507,7 @@
           "size": 215748107,
           "sha256": "f69914dc2ee2a51d6d68e0eefc0bfcd55cbc412a21ccf3b05431c20f6b764d4c",
           "built": "2026-11-09T09:52:04Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -3531,7 +3531,7 @@
           "size": 159445331,
           "sha256": "179ca58768c79b6b463d585f64caf82235bfc8d7fe7b8f1d78050788a7e133cc",
           "built": "2026-11-09T09:52:04Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -3545,7 +3545,7 @@
       "commit": "9e07687b319d8670bea4e84119fcbfc01377b4fe",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/111.0.5563.116",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/111.0.5563.116",
-      "downloads": 8,
+      "downloads": 11,
       "apks": [
         {
           "kind": "chromium",
@@ -3569,7 +3569,7 @@
           "size": 214687266,
           "sha256": "f5d4955a2e1527d7daf5a05eca877e36ae0a5bf38b68edadcbb68be1b2a7a5e1",
           "built": "2026-11-09T06:17:43Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "webview",
@@ -3593,7 +3593,7 @@
           "size": 158872733,
           "sha256": "af651f06198d9f9458eba82add1022ae27925147e215ef0f32f49ed34c80f078",
           "built": "2026-11-09T06:17:43Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -3607,7 +3607,7 @@
       "commit": "b6645c01bf3faae5f78d77bb4d6826a04298b81a",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/110.0.5481.154",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/110.0.5481.154",
-      "downloads": 10,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -3631,7 +3631,7 @@
           "size": 210802451,
           "sha256": "fae3c13a9f6220df4de49b9a52a890964bab8e0952249dacf5cf3a005bba5082",
           "built": "2026-11-06T13:22:55Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -3655,7 +3655,7 @@
           "size": 156217597,
           "sha256": "d5c1e8cf0b20d127c5851072753dcf92b271d37f7bba7e835c21a719a0e84322",
           "built": "2026-11-06T13:22:55Z",
-          "downloads": 4
+          "downloads": 7
         }
       ]
     },
@@ -3669,7 +3669,7 @@
       "commit": "3ebba78fe11f324fac8a0425c1807b79190603f9",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/109.0.5414.118",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/109.0.5414.118",
-      "downloads": 11,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -3693,7 +3693,7 @@
           "size": 207042631,
           "sha256": "86fcfa0b3b65fc188615417fe9b432ccecf2dbab7c104ab51907bdb6df54b789",
           "built": "2026-11-08T23:18:50Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -3717,7 +3717,7 @@
           "size": 77038860,
           "sha256": "795f7dc676afb6cedf8c63f1f22d369630a83f86b5c8adda9aa14279f8cf7767",
           "built": "2026-11-08T23:18:50Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -3731,7 +3731,7 @@
       "commit": "5e933908adfe43f27e517bbce4e1380e10acb60b",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/108.0.5359.128",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/108.0.5359.128",
-      "downloads": 14,
+      "downloads": 20,
       "apks": [
         {
           "kind": "chromium",
@@ -3755,7 +3755,7 @@
           "size": 205920605,
           "sha256": "916ca4e9811b3fad108fa7f21582bbe70cca85fd74c66cdf5bedc241969c388f",
           "built": "2026-11-08T21:36:29Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -3779,7 +3779,7 @@
           "size": 76486850,
           "sha256": "54cc9b7110a5773cc654bdecb9a42aca0f66830e0b5be16d28a43fd6c5a81f6a",
           "built": "2026-11-08T21:36:29Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -3793,7 +3793,7 @@
       "commit": "fed5ee4672bf0f97fe237324a31b8d171c75a836",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/107.0.5304.141",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/107.0.5304.141",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -3817,7 +3817,7 @@
           "size": 204412995,
           "sha256": "144bef5f740a0471e60c54922eb234126f287a13770ff2c5b1e990a0dfa0537e",
           "built": "2026-11-08T12:56:34Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -3841,7 +3841,7 @@
           "size": 76176675,
           "sha256": "68e4becd6cc9568d8253bc3422bdd81a88037c1a27f457ea95e2b6c4bb71dacf",
           "built": "2026-11-08T12:56:34Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -3855,7 +3855,7 @@
       "commit": "e5bb9733b3b9a517dfe5ad85a2e0b036c3f721be",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/106.0.5249.126",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/106.0.5249.126",
-      "downloads": 11,
+      "downloads": 16,
       "apks": [
         {
           "kind": "chromium",
@@ -3879,7 +3879,7 @@
           "size": 201560824,
           "sha256": "8cb087968bfe6764a6a9f7750f180489cff22c4fcdee74678527a6a667ee3037",
           "built": "2026-11-08T10:06:31Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -3903,7 +3903,7 @@
           "size": 75575067,
           "sha256": "a6f626c3ff70ba7ebea90009d6b30735e3eefd8548fb3fc88d3bcce1eb78e40b",
           "built": "2026-11-08T10:06:31Z",
-          "downloads": 4
+          "downloads": 6
         }
       ]
     },
@@ -3917,7 +3917,7 @@
       "commit": "ac44ed566013d17bf9f83628cad66e9e5427c1d3",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/105.0.5195.136",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/105.0.5195.136",
-      "downloads": 10,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -3941,7 +3941,7 @@
           "size": 200800643,
           "sha256": "6e1d0764e900da8c123b0dde80ca34160ecf3d7c01a238a66f2f8fd3c7bb2c6c",
           "built": "2026-11-08T07:09:34Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -3965,7 +3965,7 @@
           "size": 74822895,
           "sha256": "a09da2e085fcd91048a8c4cafa7877e902b796b991b3fa207cbea9bc22f711df",
           "built": "2026-11-08T07:09:34Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -3979,7 +3979,7 @@
       "commit": "5bd8ee46fe32a0e173d3885516f8f41ed562abc3",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/104.0.5112.97",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/104.0.5112.97",
-      "downloads": 9,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -4003,7 +4003,7 @@
           "size": 199705929,
           "sha256": "93e88eb0a02aac9991bb8588584ea214ff66c5a76ae83b93f3e0c1c09f01f50f",
           "built": "2026-11-08T03:42:50Z",
-          "downloads": 3
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -4027,7 +4027,7 @@
           "size": 74130295,
           "sha256": "bd6144f437de784956d8cc28a919edbca4ac167625131ed7d3ba5affa0440f0f",
           "built": "2026-11-08T03:42:50Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -4041,7 +4041,7 @@
       "commit": "7e0945a7366562e7d9a7a56be6cef91f69995619",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/103.0.5060.129",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/103.0.5060.129",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -4065,7 +4065,7 @@
           "size": 198260592,
           "sha256": "afd7186069462d3812b048accbd4faa8e53611ce8bcd354c18c3f3993859ce23",
           "built": "2026-11-07T23:58:58Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -4089,7 +4089,7 @@
           "size": 73705835,
           "sha256": "1690547dae1c62394a5feaec9e863fb1a721420f784622edc5104af157087b13",
           "built": "2026-11-07T23:58:58Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -4103,7 +4103,7 @@
       "commit": "c77ce0c0fc9ea1554d15ff6c72a7670268b128e4",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/102.0.5005.125",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/102.0.5005.125",
-      "downloads": 9,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -4127,7 +4127,7 @@
           "size": 196586193,
           "sha256": "73df21a805ae7383bafbc328f710462fb65736f2278b77087ddff0cab9ae1129",
           "built": "2026-11-07T21:05:41Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "webview",
@@ -4151,7 +4151,7 @@
           "size": 73330655,
           "sha256": "60b431cec4ce7477537bb8db7058427b0c6fa4cdd01bcfe6e30ad3d200e43e3d",
           "built": "2026-11-07T21:05:41Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -4165,7 +4165,7 @@
       "commit": "c2aaa15ff1ee64e15859881a31cba5f21bd5a5df",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/101.0.4951.61",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/101.0.4951.61",
-      "downloads": 13,
+      "downloads": 19,
       "apks": [
         {
           "kind": "chromium",
@@ -4189,7 +4189,7 @@
           "size": 193897068,
           "sha256": "6e89fcebc00b51ac1b3317abfe035205a2eb1103b3b3be17ec49bd42ab21c504",
           "built": "2026-11-07T16:53:39Z",
-          "downloads": 4
+          "downloads": 7
         },
         {
           "kind": "webview",
@@ -4213,7 +4213,7 @@
           "size": 71589242,
           "sha256": "e766fb6c555270866f05d3d3d511a5aae815ca5e9d12a31a730edd9c79dce8a0",
           "built": "2026-11-07T16:53:39Z",
-          "downloads": 5
+          "downloads": 8
         }
       ]
     },
@@ -4227,7 +4227,7 @@
       "commit": "868b46452cfe324558c39dbf9182f86a609296db",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/100.0.4896.127",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/100.0.4896.127",
-      "downloads": 14,
+      "downloads": 19,
       "apks": [
         {
           "kind": "chromium",
@@ -4251,7 +4251,7 @@
           "size": 190313722,
           "sha256": "b7bdefed569ee10dc7779dbf5ed6246669d481a78074b6198e70ce423b22f2b0",
           "built": "2026-11-06T10:44:35Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -4275,7 +4275,7 @@
           "size": 71011883,
           "sha256": "b8c85e9feff56ded195cd9750e417a4c5469296c193573864023fa69fd4635a5",
           "built": "2026-11-06T10:44:35Z",
-          "downloads": 5
+          "downloads": 7
         }
       ]
     },
@@ -4289,7 +4289,7 @@
       "commit": "da431cecc9b05c7ce436255f4b315bb0a0af591a",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/99.0.4844.88",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/99.0.4844.88",
-      "downloads": 17,
+      "downloads": 23,
       "apks": [
         {
           "kind": "chromium",
@@ -4313,7 +4313,7 @@
           "size": 188244946,
           "sha256": "723f67cc449073cc3764831a17ef0c29f8c4b7568b0c9188fdf9b2c84ae246ff",
           "built": "2026-11-10T23:35:58Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -4337,7 +4337,7 @@
           "size": 70507325,
           "sha256": "1db222b9a931e4887758a69cc61441ffa50b5071087dc3e4b7cbf1939ef305b9",
           "built": "2026-11-10T23:35:58Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -4351,7 +4351,7 @@
       "commit": "56f3f103439083b8829acc9fa89502fe4d14c805",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/98.0.4758.101",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/98.0.4758.101",
-      "downloads": 10,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -4375,7 +4375,7 @@
           "size": 185673888,
           "sha256": "5f18b52580b24066e1f005203e72ec7778601648442125d746cf5b34ea8ad7e8",
           "built": "2026-11-10T18:50:12Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -4399,7 +4399,7 @@
           "size": 69683522,
           "sha256": "17a6cf2c04ba7d2bc0f3d2a39cf504e65354daf2c78ee05cc2a1492c919a936b",
           "built": "2026-11-10T18:50:12Z",
-          "downloads": 3
+          "downloads": 5
         }
       ]
     },
@@ -4413,7 +4413,7 @@
       "commit": "beec7d52fc6c7a1e9f80e6ae041998ee5c695da3",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/97.0.4692.98",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/97.0.4692.98",
-      "downloads": 11,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -4437,7 +4437,7 @@
           "size": 183044903,
           "sha256": "cd7516de28c5d1dd22753e0718d45035cb197a2e0fe0355a660117b0a4f2d172",
           "built": "2026-11-10T12:26:09Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -4461,7 +4461,7 @@
           "size": 68884553,
           "sha256": "471c0250456c13527d27e0e315b14a1bf58f49f5f609b0e3dcad77904563c112",
           "built": "2026-11-10T12:26:09Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -4475,7 +4475,7 @@
       "commit": "56b1697230fd4fe5d061d212a6393f0a1ab1668f",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/96.0.4664.104",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/96.0.4664.104",
-      "downloads": 11,
+      "downloads": 15,
       "apks": [
         {
           "kind": "chromium",
@@ -4499,7 +4499,7 @@
           "size": 182749532,
           "sha256": "cae42fdd9c51585e5be7d6bacf9d6260c210ead608dd38202418f920d973e8a3",
           "built": "2026-11-10T05:43:07Z",
-          "downloads": 4
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -4523,7 +4523,7 @@
           "size": 68800916,
           "sha256": "07f6502eb5c05cbbffa4c956b11a8dd81459f0d51eac8e4de1283ff585daea64",
           "built": "2026-11-10T05:43:07Z",
-          "downloads": 3
+          "downloads": 6
         }
       ]
     },
@@ -4537,7 +4537,7 @@
       "commit": "e4ec56e677acfed2114b6231180b77559218d03b",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/95.0.4638.74",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/95.0.4638.74",
-      "downloads": 17,
+      "downloads": 22,
       "apks": [
         {
           "kind": "chromium",
@@ -4561,7 +4561,7 @@
           "size": 181612578,
           "sha256": "7f192767fe655d4f454ca12f49503539185054b3f58f68f1ada358a342cf7690",
           "built": "2026-11-09T23:46:32Z",
-          "downloads": 3
+          "downloads": 6
         },
         {
           "kind": "webview",
@@ -4585,7 +4585,7 @@
           "size": 68540190,
           "sha256": "c65580a3e61617afcb2e7bfdeaa55b56b848f2067c95e41ef4f0cba9d828c6fa",
           "built": "2026-11-09T23:46:32Z",
-          "downloads": 4
+          "downloads": 6
         }
       ]
     },
@@ -4599,7 +4599,7 @@
       "commit": "c6a46dc7a8496c0360b684d76da13d9e820a45bd",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/94.0.4606.85",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/94.0.4606.85",
-      "downloads": 8,
+      "downloads": 11,
       "apks": [
         {
           "kind": "chromium",
@@ -4623,7 +4623,7 @@
           "size": 180077084,
           "sha256": "4a73a032e4ad1b63f7b6c67137c5a76d426b32daf948c2586b530431f035fdaf",
           "built": "2026-11-09T12:46:14Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -4647,7 +4647,7 @@
           "size": 68257009,
           "sha256": "09f9ed415f73c27f41fe2d2dc65cc114cf01c7af2f08b884686971075be65a8b",
           "built": "2026-11-09T12:46:14Z",
-          "downloads": 2
+          "downloads": 3
         }
       ]
     },
@@ -4661,7 +4661,7 @@
       "commit": "f2d6656bdf16198c04b70efd1952dace3ed7dd8f",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/93.0.4577.82",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/93.0.4577.82",
-      "downloads": 11,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -4685,7 +4685,7 @@
           "size": 179164457,
           "sha256": "8b93e9e58299ce1f72bb34bb2483891466e961a3296e979e780d097c60a61b50",
           "built": "2026-11-10T02:28:44Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -4709,7 +4709,7 @@
           "size": 120546582,
           "sha256": "370c0ca9012abb36952934849a4408a84865bee6931d6ab0e783c9e7a49b3f8c",
           "built": "2026-11-10T02:28:44Z",
-          "downloads": 3
+          "downloads": 4
         }
       ]
     },
@@ -4723,7 +4723,7 @@
       "commit": "55a0c235f9031d0195dc4e26d8f6e3cf4e7327a0",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/92.0.4515.166",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/92.0.4515.166",
-      "downloads": 8,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -4747,7 +4747,7 @@
           "size": 155282483,
           "sha256": "5faf7e38d89263ef97fa2871a35d4d451c4f163ca37c87f56d460cfd9649b4ad",
           "built": "2026-11-06T22:22:12Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -4771,7 +4771,7 @@
           "size": 118287563,
           "sha256": "2fae9f76516fb78d89ed2664c551246019af4bfb40514a3f7c1666f830f88e10",
           "built": "2026-11-06T22:22:12Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -4785,7 +4785,7 @@
       "commit": "8a33e05d162c4f39afa2dcb150e8c2548aa4ccea",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/91.0.4472.164",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/91.0.4472.164",
-      "downloads": 8,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -4809,7 +4809,7 @@
           "size": 151745273,
           "sha256": "161f6983ed90e0dcb5969e0829caeb12730bf0e447431b066ae0f80b2696160f",
           "built": "2026-11-06T20:36:47Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -4833,7 +4833,7 @@
           "size": 116618816,
           "sha256": "5625c7e4e65dcb022bf80eb58189499e06f172eeebba4b09dfaeb57561f6cbc0",
           "built": "2026-11-06T20:36:47Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -4847,7 +4847,7 @@
       "commit": "8335194bf9a4afb7dcc1755d98118c8ff78a111c",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/90.0.4430.210",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/90.0.4430.210",
-      "downloads": 9,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -4871,7 +4871,7 @@
           "size": 146960559,
           "sha256": "0de68b854e60e05dc5c19361b211ba9db4fc95044a56b7943e4c4524e2aab639",
           "built": "2026-11-07T17:50:52Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -4895,7 +4895,7 @@
           "size": 112380389,
           "sha256": "b1376f121ee99aaa831149aff7ec7a7c535f761ee30c481a92e0837fd60be939",
           "built": "2026-11-07T17:50:52Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -4909,7 +4909,7 @@
       "commit": "63164786123068349e6334cf6b45b91740cbdd36",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/89.0.4389.105",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/89.0.4389.105",
-      "downloads": 9,
+      "downloads": 13,
       "apks": [
         {
           "kind": "chromium",
@@ -4933,7 +4933,7 @@
           "size": 139210776,
           "sha256": "5550b5609fed459163e6ddccd151855199e26b748fa61fa79a64790532ffaf1c",
           "built": "2026-11-09T07:22:09Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -4957,7 +4957,7 @@
           "size": 110426538,
           "sha256": "1acf8cfb70a082262cd72792bb9ca5f72ceda574255bbccbe68a51f773272106",
           "built": "2026-11-09T07:22:09Z",
-          "downloads": 3
+          "downloads": 4
         }
       ]
     },
@@ -4971,7 +4971,7 @@
       "commit": "3cafe3bda9b353c15e55f5e05454d2b961330fcb",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/88.0.4324.181",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/88.0.4324.181",
-      "downloads": 8,
+      "downloads": 11,
       "apks": [
         {
           "kind": "chromium",
@@ -4995,7 +4995,7 @@
           "size": 136705038,
           "sha256": "150bb07c5d0a270d9e7250b51a1fa47f8cdc4d8ae541d07bd78d04cedd32fdbf",
           "built": "2026-11-07T04:54:08Z",
-          "downloads": 2
+          "downloads": 3
         },
         {
           "kind": "webview",
@@ -5019,7 +5019,7 @@
           "size": 108094601,
           "sha256": "76d8651985dfaaf406ef2fc61bc6ea82230af3f67bafcf0be5ebdc1b2e84a376",
           "built": "2026-11-07T04:54:08Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -5033,7 +5033,7 @@
       "commit": "c0dfcf99c0bbc9c4763c70e5034eb1a970a9ff3b",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/87.0.4280.141",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/87.0.4280.141",
-      "downloads": 8,
+      "downloads": 14,
       "apks": [
         {
           "kind": "chromium",
@@ -5057,7 +5057,7 @@
           "size": 134789770,
           "sha256": "d0f9b6f1fa4d51bbdb7e58bbaa49af0133b2f436637e8dbc2cf40bc989de9fa6",
           "built": "2026-11-07T06:05:46Z",
-          "downloads": 2
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -5081,7 +5081,7 @@
           "size": 106673287,
           "sha256": "3d6ae40386738c268c6cec5b9bf8d4ad66a164c0f8cf92a2c0912d3c98b61592",
           "built": "2026-11-07T06:05:46Z",
-          "downloads": 2
+          "downloads": 5
         }
       ]
     },
@@ -5095,7 +5095,7 @@
       "commit": "5f8e74b8f1dab431a1a57d84101185f0e8da33d4",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/86.0.4240.198",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/86.0.4240.198",
-      "downloads": 8,
+      "downloads": 11,
       "apks": [
         {
           "kind": "chromium",
@@ -5119,7 +5119,7 @@
           "size": 133494860,
           "sha256": "c20a744cff3a39266b660dcc7a36a16eb24ef51fbae08c4b81d4ef53c92b5acb",
           "built": "2026-11-08T23:48:51Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -5143,7 +5143,7 @@
           "size": 104845565,
           "sha256": "396f248c342bf602db538bd7dd525b6da211fd9036c11f521d4b0fd30ec20625",
           "built": "2026-11-08T23:48:51Z",
-          "downloads": 2
+          "downloads": 3
         }
       ]
     },
@@ -5157,7 +5157,7 @@
       "commit": "d5dd81fb1fe942db9ff6d41bd1f5d9acd90a96f3",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/85.0.4183.127",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/85.0.4183.127",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -5181,7 +5181,7 @@
           "size": 70955200,
           "sha256": "54e3fd490433b2f6b135616d5423150e182a7277a7c7ff8351c5bed8a63c90d8",
           "built": "2026-11-06T19:14:24Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -5205,7 +5205,7 @@
           "size": 102977354,
           "sha256": "f75636df7f3d793a9e08cd3ee57e93ab78413b3dff15db9c3e60364d59c0b42f",
           "built": "2026-11-06T19:14:24Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -5219,7 +5219,7 @@
       "commit": "053692b20bf98c2e04a7cfd55801a55bff10886a",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/84.0.4147.125",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/84.0.4147.125",
-      "downloads": 8,
+      "downloads": 12,
       "apks": [
         {
           "kind": "chromium",
@@ -5243,7 +5243,7 @@
           "size": 70099492,
           "sha256": "bc822528b2c30d50dec955e47782ad97680240b400c31d937f0f2880fa5ee2ef",
           "built": "2026-11-06T16:50:23Z",
-          "downloads": 2
+          "downloads": 4
         },
         {
           "kind": "webview",
@@ -5267,7 +5267,7 @@
           "size": 101281859,
           "sha256": "8e8815ecb33e1927c01d486f6b5dfaf9b767adcafd342404912f2706eff38876",
           "built": "2026-11-06T16:50:23Z",
-          "downloads": 2
+          "downloads": 4
         }
       ]
     },
@@ -5281,7 +5281,7 @@
       "commit": "9fecb6416875fabd888454bfa3498c693ea6f5d3",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/83.0.4103.106",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/83.0.4103.106",
-      "downloads": 12,
+      "downloads": 17,
       "apks": [
         {
           "kind": "chromium",
@@ -5305,7 +5305,7 @@
           "size": 69421673,
           "sha256": "0e9b2b988bc31d4d55aaa705592fd78f40538b13ffa450f0c351a2957a6e5971",
           "built": "2026-11-06T14:28:00Z",
-          "downloads": 3
+          "downloads": 5
         },
         {
           "kind": "webview",
@@ -5329,7 +5329,7 @@
           "size": 97793717,
           "sha256": "ac0211bda800edb994662cb6d2e1fbb2ae1f610abe4ae70a908f57d0a44cc507",
           "built": "2026-11-06T14:28:00Z",
-          "downloads": 4
+          "downloads": 7
         }
       ]
     }
