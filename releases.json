@@ -11,7 +11,7 @@
       "commit": "ab2e5d8ad16ca47ad4361c9517225f1ac884d255",
       "source": "https://chromium.googlesource.com/chromium/src/+/refs/tags/159.0.8154.33",
       "release": "https://github.com/holtdroid/chromium-builds/releases/tag/159.0.8154.33",
-      "downloads": 25,
+      "downloads": 26,
       "apks": [
         {
           "kind": "chromium",
@@ -35,7 +35,7 @@
           "size": 410595860,
           "sha256": "5afd3814c51eea97ac49834c455f65f4e73f391f8abd8043454fda94eeea418f",
           "built": "2026-11-25T21:15:12Z",
-          "downloads": 8
+          "downloads": 9
         },
         {
           "kind": "webview",
